@@ -1,0 +1,69 @@
+PODS:
+  - DHSmartScreenshot (1.3.1)
+  - DZNEmptyDataSet (1.8.1)
+  - FDFullscreenPopGesture (1.1)
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
+  - HTAutocompleteTextField (1.3.2)
+  - iCarousel (1.8.3)
+  - InMobiSDK (6.1.1)
+  - IQKeyboardManager (3.3.7)
+  - JPFPSStatus (0.0.2)
+  - LTNavigationBar (2.0.3)
+  - MJRefresh (3.1.12)
+  - pop (1.0.9)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
+  - TKRoundedView (0.5)
+  - TOWebViewController (2.2.6):
+    - TOWebViewController/Core (= 2.2.6)
+  - TOWebViewController/Core (2.2.6)
+  - UITableView+FDTemplateLayoutCell (1.4)
+  - UIViewController+Swizzled (1.4)
+  - YCXMenu (0.0.11)
+
+DEPENDENCIES:
+  - DHSmartScreenshot
+  - DZNEmptyDataSet
+  - FDFullscreenPopGesture (= 1.1)
+  - FMDB (~> 2.2)
+  - HTAutocompleteTextField (~> 1.3.2)
+  - iCarousel
+  - InMobiSDK
+  - IQKeyboardManager
+  - JPFPSStatus (~> 0.0.2)
+  - LTNavigationBar (~> 2.0.3)
+  - MJRefresh
+  - pop
+  - SDWebImage (~> 3.7.1)
+  - TKRoundedView
+  - TOWebViewController
+  - UITableView+FDTemplateLayoutCell
+  - UIViewController+Swizzled (~> 1.2)
+  - YCXMenu
+
+SPEC CHECKSUMS:
+  DHSmartScreenshot: ee749048bd7126c4826748f98df3a4adc6ad6c78
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  HTAutocompleteTextField: ce809f04875e843e20f214ab973bb496ba7a93b1
+  iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
+  InMobiSDK: ddd4c601b3a5b9a315c4ea392e5bb367d7be1b94
+  IQKeyboardManager: 249c3946acf61345c18b038eb50863fe2793e3a8
+  JPFPSStatus: 11de6027b4cbebfeee0c939dfe08f5ec124a0965
+  LTNavigationBar: 28903730dc6babd80059c391ce095ac179ce454d
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  TKRoundedView: 0886ec88ad9d8f9c1de7503babecfacc06263920
+  TOWebViewController: a29908019f7e0e0f8eccfab8a1ee8dcdf4fc5aac
+  UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
+  UIViewController+Swizzled: 1cd9397598ede6930f94fbcac4b43d63c7aa0dbb
+  YCXMenu: 6003bcd20d8ac72e3eb3c442c97ed21948c6dc1f
+
+PODFILE CHECKSUM: 104047f38c6d961d5bc4068ce82d55eac6e7aab0
+
+COCOAPODS: 1.2.0
