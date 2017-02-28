@@ -199,7 +199,7 @@ static NSString *arrowsCellIdentifier = @"ARROWSCELLS";
         keyboardLevel.tag = i;
 
         UITextField *pFiled = [[UITextField alloc] initWithFrame:CGRectMake(inputView.width/[arrowsStr intValue]*i, 0, inputView.width/[arrowsStr intValue], inputView.height)];
-        pFiled.backgroundColor = RandomColor;
+        pFiled.backgroundColor = [UIColor whiteColor];
         pFiled.tag = i+100;
         pFiled.textAlignment = NSTextAlignmentCenter;
         pFiled.inputView = keyboardLevel;
@@ -208,6 +208,11 @@ static NSString *arrowsCellIdentifier = @"ARROWSCELLS";
 //        if (pFiled.tag == 100) {
 //            [pFiled becomeFirstResponder];
 //        }
+    }
+    for (int i = 0; i < [arrowsStr intValue]-1; i++) {
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(inputView.width/[arrowsStr intValue]+inputView.width/[arrowsStr intValue]*i, 0, 1, inputView.height)];
+        line.backgroundColor = [UIColor lightGrayColor];
+        [inputView addSubview:line];
     }
 }
 
@@ -414,7 +419,7 @@ static NSString *arrowsCellIdentifier = @"ARROWSCELLS";
                 NSData *myData = UIImagePNGRepresentation(imgeee);
 
                 [myData writeToFile:plistPath atomically:YES];
-
+                [self.navigationController popToRootViewControllerAnimated:YES];
                 [Utils alertShowWithMessage:@"保存成功"];
             }
         }

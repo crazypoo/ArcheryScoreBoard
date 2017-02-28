@@ -71,6 +71,7 @@
 		508F8B151E5C64FC00E2C5BA /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 508F8B141E5C64FC00E2C5BA /* libiconv.tbd */; };
 		80F8B6FECA700BCC02E8FFC2 /* Pods_Archery_Score.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737B73C76B382F3FCD12B745 /* Pods_Archery_Score.framework */; };
 		CC31292D1E5B6A9100FF8624 /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC31292C1E5B6A9100FF8624 /* DZNEmptyDataSet.framework */; };
+		CC672C481E6601E800C3D85D /* UINavigationItem+Excursion.m in Sources */ = {isa = PBXBuildFile; fileRef = CC672C471E6601E800C3D85D /* UINavigationItem+Excursion.m */; };
 		CCA695DE1E5B792400A30E93 /* PAboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA695DD1E5B792400A30E93 /* PAboutMeViewController.m */; };
 		CCA695E21E5B797D00A30E93 /* PooTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA695E11E5B797D00A30E93 /* PooTextView.m */; };
 		CCA695E81E5B79A700A30E93 /* GPFeedBackTopicsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA695E51E5B79A700A30E93 /* GPFeedBackTopicsTableViewController.m */; };
@@ -193,6 +194,8 @@
 		737B73C76B382F3FCD12B745 /* Pods_Archery_Score.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Archery_Score.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF2E5FAB35A290BAFC041E54 /* Pods-Archery Score.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Archery Score.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Archery Score/Pods-Archery Score.debug.xcconfig"; sourceTree = "<group>"; };
 		CC31292C1E5B6A9100FF8624 /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = "Pods/../build/Debug-iphoneos/DZNEmptyDataSet/DZNEmptyDataSet.framework"; sourceTree = "<group>"; };
+		CC672C461E6601E800C3D85D /* UINavigationItem+Excursion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+Excursion.h"; sourceTree = "<group>"; };
+		CC672C471E6601E800C3D85D /* UINavigationItem+Excursion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Excursion.m"; sourceTree = "<group>"; };
 		CCA695DC1E5B792400A30E93 /* PAboutMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAboutMeViewController.h; sourceTree = "<group>"; };
 		CCA695DD1E5B792400A30E93 /* PAboutMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAboutMeViewController.m; sourceTree = "<group>"; };
 		CCA695E01E5B797D00A30E93 /* PooTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PooTextView.h; sourceTree = "<group>"; };
@@ -304,6 +307,8 @@
 		5011B4221E55CFA600C49365 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				CC672C461E6601E800C3D85D /* UINavigationItem+Excursion.h */,
+				CC672C471E6601E800C3D85D /* UINavigationItem+Excursion.m */,
 				5011B4231E55CFB700C49365 /* UIView+Category.h */,
 				5011B4241E55CFB700C49365 /* UIView+Category.m */,
 			);
@@ -756,6 +761,7 @@
 				CCA695E91E5B79A700A30E93 /* GPFeedBackViewController.m in Sources */,
 				5011B4171E532F4700C49365 /* PTargetOptionViewController.m in Sources */,
 				5011B4351E56339D00C49365 /* CBHistoryCollectionViewController.m in Sources */,
+				CC672C481E6601E800C3D85D /* UINavigationItem+Excursion.m in Sources */,
 				505412641E53261C00D951D6 /* main.m in Sources */,
 				5011B49D1E58DED200C49365 /* PArcheryKeyBoard.m in Sources */,
 				5011B4251E55CFB700C49365 /* UIView+Category.m in Sources */,

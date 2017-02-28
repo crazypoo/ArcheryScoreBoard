@@ -252,10 +252,10 @@ static NSString * const reuseIdentifier = @"Cell";
 
             NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
 
-            [shareParams SSDKSetupShareParamsByText:nil
+            [shareParams SSDKSetupShareParamsByText:@"来看看我这次的成绩🤣"
                                              images:shareImageArray
                                                 url:nil
-                                              title:nil
+                                              title:@"ArcheryScoreBoard"
                                                type:SSDKContentTypeAuto];
 
             [shareParams SSDKEnableUseClientShare];

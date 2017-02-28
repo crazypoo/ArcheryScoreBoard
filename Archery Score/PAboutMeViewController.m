@@ -26,6 +26,11 @@
     return @[@"Me",@"Alipay",@"WeChat"];
 }
 
+-(NSArray *)AboutMeTitle
+{
+    return @[@"这是我",@"支付宝",@"微信"];
+}
+
 -(NSArray *)titleArr
 {
     return @[@"去评分",@"帮助与反馈"];
@@ -142,7 +147,7 @@
 {
     if (indexPath.row == 0)
     {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/lian-suo-cun/id988642452?l=zh&ls=1&mt=8"]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/archeryboard/id1207773724?l=zh&ls=1&mt=8"]];
     }
     else if (indexPath.row == 1)
     {
@@ -221,7 +226,7 @@
     YXCustomAlertView *alertV = [[YXCustomAlertView alloc] initAlertViewWithFrame:CGRectMake(dilX, 0, screenWidth-50, dilH) andSuperView:self.navigationController.view onlyOkButton:YES];
     alertV.center = CGPointMake(screenWidth/2, screenHeight/2);
     alertV.delegate = self;
-    alertV.titleStr = @"向我支付救济金";
+    alertV.titleStr = self.AboutMeTitle[index];
     alertV.tag = 999;
 
     CGFloat loginX = 20;
