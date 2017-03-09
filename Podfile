@@ -35,4 +35,6 @@ pod 'iCarousel'
 #pod 'PSTCollectionView'
 #pod 'EaseUI', :git => 'https://github.com/easemob/easeui-ios-hyphenate-cocoapods.git'
 #pod 'PNChart'
+   pod 'Masonry' #适配
+
 end
