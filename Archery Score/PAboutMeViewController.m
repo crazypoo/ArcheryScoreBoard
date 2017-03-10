@@ -42,7 +42,7 @@
     self.title = [NSString stringWithFormat:@"关于%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]];
     self.view.backgroundColor = [UIColor whiteColor];
 
-    tbView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, self.view.frame.size.height) style:UITableViewStyleGrouped];
+    tbView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight) style:UITableViewStyleGrouped];
     tbView.dataSource = self;
     tbView.delegate = self;
     tbView.showsHorizontalScrollIndicator = NO;
@@ -133,7 +133,7 @@
     UILabel *info = [[UILabel alloc] init];
     
     footView.frame = CGRectMake(0, 0, screenWidth, screenHeight - 334);
-    info.frame = CGRectMake(0, footView.frame.size.height-20, screenWidth, 20);
+    info.frame = CGRectMake(0, footView.height-20, screenWidth, 20);
     
     info.textAlignment = NSTextAlignmentCenter;
     info.textColor = [UIColor lightGrayColor];

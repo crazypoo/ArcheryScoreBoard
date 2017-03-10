@@ -70,6 +70,7 @@
 		508F8B131E5C64EA00E2C5BA /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 508F8B121E5C64EA00E2C5BA /* libstdc++.6.0.9.tbd */; };
 		508F8B151E5C64FC00E2C5BA /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 508F8B141E5C64FC00E2C5BA /* libiconv.tbd */; };
 		80F8B6FECA700BCC02E8FFC2 /* Pods_Archery_Score.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737B73C76B382F3FCD12B745 /* Pods_Archery_Score.framework */; };
+		B71A713F1E723F70005C1F68 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B71A713E1E723F70005C1F68 /* Masonry.framework */; };
 		CC31292D1E5B6A9100FF8624 /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC31292C1E5B6A9100FF8624 /* DZNEmptyDataSet.framework */; };
 		CC672C481E6601E800C3D85D /* UINavigationItem+Excursion.m in Sources */ = {isa = PBXBuildFile; fileRef = CC672C471E6601E800C3D85D /* UINavigationItem+Excursion.m */; };
 		CCA695DE1E5B792400A30E93 /* PAboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA695DD1E5B792400A30E93 /* PAboutMeViewController.m */; };
@@ -193,6 +194,7 @@
 		508F8CC41E5C66EF00E2C5BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		737B73C76B382F3FCD12B745 /* Pods_Archery_Score.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Archery_Score.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF2E5FAB35A290BAFC041E54 /* Pods-Archery Score.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Archery Score.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Archery Score/Pods-Archery Score.debug.xcconfig"; sourceTree = "<group>"; };
+		B71A713E1E723F70005C1F68 /* Masonry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Masonry.framework; path = "../Library/Developer/Xcode/DerivedData/Archery_Score-dbtpthzvhlhtllafumcqaqputgtb/Build/Products/Debug-iphoneos/Masonry/Masonry.framework"; sourceTree = "<group>"; };
 		CC31292C1E5B6A9100FF8624 /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = "Pods/../build/Debug-iphoneos/DZNEmptyDataSet/DZNEmptyDataSet.framework"; sourceTree = "<group>"; };
 		CC672C461E6601E800C3D85D /* UINavigationItem+Excursion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+Excursion.h"; sourceTree = "<group>"; };
 		CC672C471E6601E800C3D85D /* UINavigationItem+Excursion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Excursion.m"; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B71A713F1E723F70005C1F68 /* Masonry.framework in Frameworks */,
 				508F8B151E5C64FC00E2C5BA /* libiconv.tbd in Frameworks */,
 				5011B4901E58D5CF00C49365 /* libsqlite3.tbd in Frameworks */,
 				508F8B131E5C64EA00E2C5BA /* libstdc++.6.0.9.tbd in Frameworks */,
@@ -553,6 +556,7 @@
 		79934EEAB256FC6E52C5DE7F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B71A713E1E723F70005C1F68 /* Masonry.framework */,
 				501C28011E5DFBAC00B7E2E8 /* UICountingLabel.framework */,
 				501C27FF1E5DFBA700B7E2E8 /* PNChart.framework */,
 				508F8CC41E5C66EF00E2C5BA /* Foundation.framework */,

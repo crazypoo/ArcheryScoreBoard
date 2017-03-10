@@ -45,7 +45,7 @@
     if (IS_IPAD) {
         adBanner = CGRectMake(0, screenHeight-100-HEIGHT_NAVBAR, screenWidth, 100);
     }
-    else if (IS_IPHONE)
+    else
     {
         adBanner = CGRectMake(0, screenHeight-50-HEIGHT_NAVBAR, screenWidth, 50);
     }

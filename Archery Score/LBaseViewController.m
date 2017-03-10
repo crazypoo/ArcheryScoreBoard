@@ -12,22 +12,54 @@
 {
     UIImageView *navigationImageView;
 }
-
+@property (nonatomic, strong) UIView * buttomView;
 @end
 
 @implementation LBaseViewController
 
-#pragma mark ---------------> AboutView
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     navigationImageView.hidden = YES;
+    if (self.buttomView) {
+        if (!self.buttomView.superview) {
+            [self.navigationController.view addSubview:self.buttomView];
+            [self.buttomView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(self.buttomView.superview);
+                make.right.equalTo(self.buttomView.superview);
+                make.bottom.equalTo(self.buttomView.superview.mas_bottom).offset(self.buttomView.frame.size.height);
+            }];
+            self.buttomView.alpha = 0.0;
+            [self.buttomView.superview layoutIfNeeded];
+        }
+        PWeakSelf(self);
+        [self.buttomView.layer removeAllAnimations];
+        [UIView animateWithDuration:0.3 animations:^{
+            [weakself.buttomView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.bottom.equalTo(weakself.buttomView.superview.mas_bottom);
+            }];
+            [weakself.buttomView.superview layoutIfNeeded];
+            self.buttomView.alpha = 1.0;
+        }];
+    }
 }
 
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
     navigationImageView.hidden = YES;
+    PWeakSelf(self)
+    if (self.buttomView) {
+        [self.buttomView.layer removeAllAnimations];
+        [UIView animateWithDuration:0.3 animations:^{
+            weakself.buttomView.alpha = 0.0;
+        } completion:^(BOOL finished) {
+            if (finished) {
+                [weakself.buttomView removeFromSuperview];
+                weakself.buttomView = nil;
+            }
+        }];
+    }
 }
 
 #pragma mark --------------->CreateImageWithColor
@@ -43,6 +75,18 @@
     return theImage;
 }
 
+#pragma mark ---------------> AboutView
+- (UIView *)buttomView {
+    if (!_buttomView) {
+        _buttomView = [self setNavigationBottomView];
+    }
+    return _buttomView;
+}
+
+- (UIView *) setNavigationBottomView {
+    return nil;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -52,7 +96,14 @@
     [self.leftNavBtn addTarget:self action:@selector(backAct:) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:self.leftNavBtn]];
 
-    [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:PRGBAColor(0, 149, 227,1)] forBarMetrics:UIBarMetricsDefault];
+    self.navColor = PRGBAColor(0, 149, 227,1);
+    if (self.navColor) {
+        [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:self.navColor] forBarMetrics:UIBarMetricsDefault];
+    }
+    else
+    {
+        [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:[UIColor whiteColor]] forBarMetrics:UIBarMetricsDefault];
+    }
 
     navigationImageView = [self findHairlineImageViewUnder:self.navigationController.navigationBar];
 }

@@ -205,10 +205,8 @@ static NSString *arrowsCellIdentifier = @"ARROWSCELLS";
         pFiled.inputView = keyboardLevel;
         pFiled.delegate = self;
         [inputView addSubview:pFiled];
-//        if (pFiled.tag == 100) {
-//            [pFiled becomeFirstResponder];
-//        }
     }
+    
     for (int i = 0; i < [arrowsStr intValue]-1; i++) {
         UIView *line = [[UIView alloc] initWithFrame:CGRectMake(inputView.width/[arrowsStr intValue]+inputView.width/[arrowsStr intValue]*i, 0, 1, inputView.height)];
         line.backgroundColor = [UIColor lightGrayColor];

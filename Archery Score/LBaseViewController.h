@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Masonry/Masonry.h>
 
 @interface LBaseViewController : UIViewController
 -(UIImage*)createImageWithColor:(UIColor*)color;
+- (UIView *) setNavigationBottomView;
 
 @property (nonatomic, retain) UIButton *leftNavBtn;
+@property (nonatomic, strong) UIColor *navColor;
 @end
