@@ -288,7 +288,16 @@ class TargetViewController: BaseViewController, UIImagePickerControllerDelegate,
         mFloat = CGFloat(mArr.count)
 
         
-        if completedEnd { SendButton.isEnabled = true } else { SendButton.isEnabled = false }
+        if completedEnd
+        {
+            SendButton.isEnabled = true
+            cameraBtn.isEnabled = true
+        }
+        else
+        {
+            SendButton.isEnabled = false
+            cameraBtn.isEnabled = false
+        }
         if isAnyArrowShot{ CorrectButton.isEnabled = true } else { CorrectButton.isEnabled = false }
         
         updateMarkers()
@@ -317,7 +326,6 @@ class TargetViewController: BaseViewController, UIImagePickerControllerDelegate,
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.white
-        self.title = "XXXXXXXX";
         
         let touch = UIPanGestureRecognizer.init(target: self, action: #selector(self.setArrowPosition(_:)))
         self.view.addGestureRecognizer(touch)
@@ -615,6 +623,7 @@ class TargetViewController: BaseViewController, UIImagePickerControllerDelegate,
         cameraBtn = UIButton.init(type: .custom)
         cameraBtn.setTitleColor(UIColor.blue, for: .normal)
         cameraBtn.setTitleColor(UIColor.lightGray, for: .disabled)
+        cameraBtn.isEnabled = false
         cameraBtn.setTitle("拍照", for: .normal)
         cameraBtn.addTarget(self, action: #selector(TargetViewController.takePhoto), for: .touchUpInside)
         self.view.addSubview(cameraBtn)
@@ -654,6 +663,7 @@ class TargetViewController: BaseViewController, UIImagePickerControllerDelegate,
             self.SendButton.isHidden = false
             self.cameraBtn.isHidden = false
             self.backBtn.isHidden = false
+            PSaveTools.save(toScoreHistory: saveimage)
         }
     }
 }

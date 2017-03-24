@@ -18,7 +18,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self.contentView setFrame:CGRectMake(0, 0, (SCREEN_WIDTH-20)/2, (SCREEN_HEIGHT-30-HEIGHT_NAVBAR)/2)];
+//        [self.contentView setFrame:CGRectMake(0, 0, (SCREEN_WIDTH-20)/2, (SCREEN_HEIGHT-30-HEIGHT_NAVBAR)/2)];
 
         self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height-40)];
         [self.contentView addSubview:self.imageView];

@@ -32,7 +32,7 @@
     self.title = @"主界面";
     self.leftNavBtn.hidden = YES;
 
-    tbView    = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight) style:UITableViewStylePlain];
+    tbView    = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
     tbView.dataSource                     = self;
     tbView.delegate                       = self;
     tbView.showsHorizontalScrollIndicator = NO;

@@ -42,7 +42,7 @@
     self.title = [NSString stringWithFormat:@"关于%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]];
     self.view.backgroundColor = [UIColor whiteColor];
 
-    tbView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight) style:UITableViewStyleGrouped];
+    tbView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
     tbView.dataSource = self;
     tbView.delegate = self;
     tbView.showsHorizontalScrollIndicator = NO;
@@ -78,7 +78,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return screenHeight - 334;
+    return SCREEN_HEIGHT - 334;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -107,16 +107,16 @@
     UIView *headerView = [[UIView alloc] init];
     UILabel *version = [[UILabel alloc] init];
 
-    headerView.frame = CGRectMake(0, 0, screenWidth, 230);
+    headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 230);
 
-    iCarousel *carousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 200)];
+    iCarousel *carousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
     carousel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     carousel.type = iCarouselTypeCoverFlow;
     carousel.delegate = self;
     carousel.dataSource = self;
     [headerView addSubview:carousel];
 
-    version.frame = CGRectMake(0, carousel.y+carousel.height, screenWidth, 30);
+    version.frame = CGRectMake(0, carousel.y+carousel.height, SCREEN_WIDTH, 30);
 
     version.textAlignment = NSTextAlignmentCenter;
     version.font = DEFAULT_FONT(FontName,24);
@@ -132,8 +132,8 @@
     UIView *footView = [[UIView alloc] init];
     UILabel *info = [[UILabel alloc] init];
     
-    footView.frame = CGRectMake(0, 0, screenWidth, screenHeight - 334);
-    info.frame = CGRectMake(0, footView.height-20, screenWidth, 20);
+    footView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 334);
+    info.frame = CGRectMake(0, footView.height-20, SCREEN_WIDTH, 20);
     
     info.textAlignment = NSTextAlignmentCenter;
     info.textColor = [UIColor lightGrayColor];
@@ -222,9 +222,9 @@
 -(void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
 {
     CGFloat dilX = 25;
-    CGFloat dilH = screenHeight-40;
-    YXCustomAlertView *alertV = [[YXCustomAlertView alloc] initAlertViewWithFrame:CGRectMake(dilX, 0, screenWidth-50, dilH) andSuperView:self.navigationController.view onlyOkButton:YES];
-    alertV.center = CGPointMake(screenWidth/2, screenHeight/2);
+    CGFloat dilH = SCREEN_HEIGHT-40;
+    YXCustomAlertView *alertV = [[YXCustomAlertView alloc] initAlertViewWithFrame:CGRectMake(dilX, 0, SCREEN_WIDTH-50, dilH) andSuperView:self.navigationController.view onlyOkButton:YES];
+    alertV.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
     alertV.delegate = self;
     alertV.titleStr = self.AboutMeTitle[index];
     alertV.tag = 999;

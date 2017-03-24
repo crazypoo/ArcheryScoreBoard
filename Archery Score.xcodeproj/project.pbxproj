@@ -43,11 +43,9 @@
 		508F8B111E5C64DA00E2C5BA /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 508F8B101E5C64DA00E2C5BA /* libc++.tbd */; };
 		508F8B131E5C64EA00E2C5BA /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 508F8B121E5C64EA00E2C5BA /* libstdc++.6.0.9.tbd */; };
 		508F8B151E5C64FC00E2C5BA /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 508F8B141E5C64FC00E2C5BA /* libiconv.tbd */; };
-		80F8B6FECA700BCC02E8FFC2 /* Pods_Archery_Score.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737B73C76B382F3FCD12B745 /* Pods_Archery_Score.framework */; };
 		88F533F6130CC845C2B410BE /* Pods_OCAndSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB6026884472B0CD23A4BB0 /* Pods_OCAndSwift.framework */; };
 		B70ABFC51E850E03005D5F57 /* HealthKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B70ABFC21E850E03005D5F57 /* HealthKitManager.m */; };
 		B70ABFC61E850E03005D5F57 /* RCDraggableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B70ABFC41E850E03005D5F57 /* RCDraggableButton.m */; };
-		B70ABFC81E850E13005D5F57 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7C5CB641E84F1CE009F5AC9 /* HealthKit.framework */; };
 		B70AC0021E850F05005D5F57 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 508F8B141E5C64FC00E2C5BA /* libiconv.tbd */; };
 		B70AC0031E850F0D005D5F57 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5011B48F1E58D5CF00C49365 /* libsqlite3.tbd */; };
 		B70AC0041E850F1C005D5F57 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 508F8B121E5C64EA00E2C5BA /* libstdc++.6.0.9.tbd */; };
@@ -163,9 +161,15 @@
 		B7C5CB821E84F674009F5AC9 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5CB7A1E84F674009F5AC9 /* HomePageViewController.swift */; };
 		B7C5CB831E84F674009F5AC9 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5CB7B1E84F674009F5AC9 /* ResultViewController.swift */; };
 		B7C5CB841E84F674009F5AC9 /* Shot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5CB7C1E84F674009F5AC9 /* Shot.swift */; };
-		B7C5CB851E84F674009F5AC9 /* TargetImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5CB7D1E84F674009F5AC9 /* TargetImageCell.swift */; };
 		B7C5CB861E84F674009F5AC9 /* TargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5CB7E1E84F674009F5AC9 /* TargetViewController.swift */; };
+		CC2514081E85872F00ADBDA4 /* PResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2514071E85872F00ADBDA4 /* PResultTableViewCell.swift */; };
 		CC31292D1E5B6A9100FF8624 /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC31292C1E5B6A9100FF8624 /* DZNEmptyDataSet.framework */; };
+		CC635F2E1E855E840084A40F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7C5CB641E84F1CE009F5AC9 /* HealthKit.framework */; };
+		CC78E4FC1E856C8500580676 /* PSaveTools.m in Sources */ = {isa = PBXBuildFile; fileRef = CC78E4FB1E856C8500580676 /* PSaveTools.m */; };
+		CC9140F41E8592D900AFD3DA /* YCXMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC9140F31E8592D900AFD3DA /* YCXMenu.framework */; };
+		CC9140F51E859B4700AFD3DA /* PAboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA695DD1E5B792400A30E93 /* PAboutMeViewController.m */; };
+		CC9140F61E859B5100AFD3DA /* LBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505412831E532DE200D951D6 /* LBaseViewController.m */; };
+		CC9140F81E859F9500AFD3DA /* iCarousel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC9140F71E859F9500AFD3DA /* iCarousel.framework */; };
 		CCA695DE1E5B792400A30E93 /* PAboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA695DD1E5B792400A30E93 /* PAboutMeViewController.m */; };
 		CCA695EB1E5B90E900A30E93 /* iCarousel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA695EA1E5B90E900A30E93 /* iCarousel.framework */; };
 /* End PBXBuildFile section */
@@ -184,7 +188,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		34B36771D1175639E398E69D /* Pods-Archery Score.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Archery Score.release.xcconfig"; path = "Pods/Target Support Files/Pods-Archery Score/Pods-Archery Score.release.xcconfig"; sourceTree = "<group>"; };
 		372854880596684D8A2A8D95 /* Pods-OCAndSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCAndSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OCAndSwift/Pods-OCAndSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		5011B4151E532F4700C49365 /* PTargetOptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTargetOptionViewController.h; sourceTree = "<group>"; };
 		5011B4161E532F4700C49365 /* PTargetOptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTargetOptionViewController.m; sourceTree = "<group>"; };
@@ -238,7 +241,6 @@
 		737B73C76B382F3FCD12B745 /* Pods_Archery_Score.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Archery_Score.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB6026884472B0CD23A4BB0 /* Pods_OCAndSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OCAndSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACFED40E3FF1027C4DDC6FD /* Pods-OCAndSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCAndSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-OCAndSwift/Pods-OCAndSwift.release.xcconfig"; sourceTree = "<group>"; };
-		AF2E5FAB35A290BAFC041E54 /* Pods-Archery Score.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Archery Score.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Archery Score/Pods-Archery Score.debug.xcconfig"; sourceTree = "<group>"; };
 		B70ABFC11E850E03005D5F57 /* HealthKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthKitManager.h; sourceTree = "<group>"; };
 		B70ABFC21E850E03005D5F57 /* HealthKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthKitManager.m; sourceTree = "<group>"; };
 		B70ABFC31E850E03005D5F57 /* RCDraggableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDraggableButton.h; sourceTree = "<group>"; };
@@ -355,9 +357,13 @@
 		B7C5CB7A1E84F674009F5AC9 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		B7C5CB7B1E84F674009F5AC9 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		B7C5CB7C1E84F674009F5AC9 /* Shot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shot.swift; sourceTree = "<group>"; };
-		B7C5CB7D1E84F674009F5AC9 /* TargetImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetImageCell.swift; sourceTree = "<group>"; };
 		B7C5CB7E1E84F674009F5AC9 /* TargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetViewController.swift; sourceTree = "<group>"; };
+		CC2514071E85872F00ADBDA4 /* PResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PResultTableViewCell.swift; sourceTree = "<group>"; };
 		CC31292C1E5B6A9100FF8624 /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = "Pods/../build/Debug-iphoneos/DZNEmptyDataSet/DZNEmptyDataSet.framework"; sourceTree = "<group>"; };
+		CC78E4FA1E856C8500580676 /* PSaveTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSaveTools.h; sourceTree = "<group>"; };
+		CC78E4FB1E856C8500580676 /* PSaveTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSaveTools.m; sourceTree = "<group>"; };
+		CC9140F31E8592D900AFD3DA /* YCXMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YCXMenu.framework; path = "../../Library/Developer/Xcode/DerivedData/Archery_Score-ggxdymdmdrjdmvfhzdgpffncrqni/Build/Products/Debug-iphoneos/YCXMenu/YCXMenu.framework"; sourceTree = "<group>"; };
+		CC9140F71E859F9500AFD3DA /* iCarousel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iCarousel.framework; path = "Pods/../build/Debug-iphoneos/iCarousel.framework"; sourceTree = "<group>"; };
 		CCA695DC1E5B792400A30E93 /* PAboutMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAboutMeViewController.h; sourceTree = "<group>"; };
 		CCA695DD1E5B792400A30E93 /* PAboutMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAboutMeViewController.m; sourceTree = "<group>"; };
 		CCA695EA1E5B90E900A30E93 /* iCarousel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iCarousel.framework; path = "Pods/../build/Debug-iphoneos/iCarousel/iCarousel.framework"; sourceTree = "<group>"; };
@@ -409,7 +415,6 @@
 				5011B42D1E562FEC00C49365 /* DHSmartScreenshot.framework in Frameworks */,
 				5011B42B1E55D99A00C49365 /* IQKeyboardManager.framework in Frameworks */,
 				5011B4211E54F13C00C49365 /* UIViewController_Swizzled.framework in Frameworks */,
-				80F8B6FECA700BCC02E8FFC2 /* Pods_Archery_Score.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +422,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC9140F81E859F9500AFD3DA /* iCarousel.framework in Frameworks */,
+				CC9140F41E8592D900AFD3DA /* YCXMenu.framework in Frameworks */,
+				CC635F2E1E855E840084A40F /* HealthKit.framework in Frameworks */,
 				B70AC0111E850F9D005D5F57 /* libsqlite3.0.tbd in Frameworks */,
 				B70AC0791E850FF2005D5F57 /* libWeiboSDK.a in Frameworks */,
 				B70AC0101E850F8E005D5F57 /* CoreLocation.framework in Frameworks */,
@@ -448,7 +456,6 @@
 				B70AC0831E850FF2005D5F57 /* MOBFoundation.framework in Frameworks */,
 				B7C5CB5E1E84F05D009F5AC9 /* DHSmartScreenshot.framework in Frameworks */,
 				B7C5CB5F1E84F05D009F5AC9 /* DZNEmptyDataSet.framework in Frameworks */,
-				B70ABFC81E850E13005D5F57 /* HealthKit.framework in Frameworks */,
 				B70AC0771E850FF2005D5F57 /* WechatConnector.framework in Frameworks */,
 				B70AC0651E850FF2005D5F57 /* PTools.framework in Frameworks */,
 				B7C5CB1A1E84EA75009F5AC9 /* Masonry.framework in Frameworks */,
@@ -462,8 +469,6 @@
 		2E1BA977517A05B00F2C7668 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AF2E5FAB35A290BAFC041E54 /* Pods-Archery Score.debug.xcconfig */,
-				34B36771D1175639E398E69D /* Pods-Archery Score.release.xcconfig */,
 				372854880596684D8A2A8D95 /* Pods-OCAndSwift.debug.xcconfig */,
 				AACFED40E3FF1027C4DDC6FD /* Pods-OCAndSwift.release.xcconfig */,
 			);
@@ -589,6 +594,8 @@
 		79934EEAB256FC6E52C5DE7F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CC9140F71E859F9500AFD3DA /* iCarousel.framework */,
+				CC9140F31E8592D900AFD3DA /* YCXMenu.framework */,
 				B7C5CB6E1E84F3A7009F5AC9 /* PNChart.framework */,
 				B7C5CB641E84F1CE009F5AC9 /* HealthKit.framework */,
 				B7C5CB621E84F199009F5AC9 /* SJFluidSegmentedControl.framework */,
@@ -849,6 +856,8 @@
 				B7C5CB121E84E988009F5AC9 /* Info.plist */,
 				B7C5CB011E84E988009F5AC9 /* Supporting Files */,
 				B7C5CB161E84E9AC009F5AC9 /* OCAndSwift-Bridging-Header.h */,
+				CC78E4FA1E856C8500580676 /* PSaveTools.h */,
+				CC78E4FB1E856C8500580676 /* PSaveTools.m */,
 			);
 			path = OCAndSwift;
 			sourceTree = "<group>";
@@ -931,8 +940,8 @@
 				B7C5CB7A1E84F674009F5AC9 /* HomePageViewController.swift */,
 				B7C5CB7B1E84F674009F5AC9 /* ResultViewController.swift */,
 				B7C5CB7C1E84F674009F5AC9 /* Shot.swift */,
-				B7C5CB7D1E84F674009F5AC9 /* TargetImageCell.swift */,
 				B7C5CB7E1E84F674009F5AC9 /* TargetViewController.swift */,
+				CC2514071E85872F00ADBDA4 /* PResultTableViewCell.swift */,
 			);
 			path = SwiftClass;
 			sourceTree = "<group>";
@@ -953,12 +962,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 505412761E53261C00D951D6 /* Build configuration list for PBXNativeTarget "Archery Score" */;
 			buildPhases = (
-				0BB511C16DC8B009C7EF8E62 /* [CP] Check Pods Manifest.lock */,
 				5054125B1E53261C00D951D6 /* Sources */,
 				5054125C1E53261C00D951D6 /* Frameworks */,
 				5054125D1E53261C00D951D6 /* Resources */,
-				EB24124C4D2A6AB15BEB763A /* [CP] Embed Pods Frameworks */,
-				50451E09BD095F14EB055363 /* [CP] Copy Pods Resources */,
 				508F8CCD1E5C699700E2C5BA /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -1085,36 +1091,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0BB511C16DC8B009C7EF8E62 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		50451E09BD095F14EB055363 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Archery Score/Pods-Archery Score-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		68E810E006DCB58C639E2210 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1160,21 +1136,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		EB24124C4D2A6AB15BEB763A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Archery Score/Pods-Archery Score-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1212,16 +1173,17 @@
 			files = (
 				B7C5CB091E84E988009F5AC9 /* ViewController.m in Sources */,
 				B7C5CB4D1E84EFC4009F5AC9 /* PConfigurationTheme.m in Sources */,
+				CC9140F61E859B5100AFD3DA /* LBaseViewController.m in Sources */,
 				B70AC0611E850FF2005D5F57 /* UIView+Category.m in Sources */,
 				B7C5CB861E84F674009F5AC9 /* TargetViewController.swift in Sources */,
 				B7C5CB841E84F674009F5AC9 /* Shot.swift in Sources */,
 				B7C5CB4C1E84EFC4009F5AC9 /* BaseViewController.m in Sources */,
 				B7C5CB831E84F674009F5AC9 /* ResultViewController.swift in Sources */,
+				CC2514081E85872F00ADBDA4 /* PResultTableViewCell.swift in Sources */,
 				B70AC0951E850FF2005D5F57 /* CBButton.m in Sources */,
 				B7C5CB061E84E988009F5AC9 /* AppDelegate.m in Sources */,
 				B70AC08F1E850FF2005D5F57 /* GPFeedBackViewController.m in Sources */,
 				B70AC09C1E85108A005D5F57 /* PooTextView.m in Sources */,
-				B7C5CB851E84F674009F5AC9 /* TargetImageCell.swift in Sources */,
 				B70AC0911E850FF2005D5F57 /* ALActionSheetView.m in Sources */,
 				B70AC08D1E850FF2005D5F57 /* GPFeedBackTopicsTableViewController.m in Sources */,
 				B70AC0891E850FF2005D5F57 /* YXCustomAlertView.m in Sources */,
@@ -1235,11 +1197,13 @@
 				B70AC05F1E850FF2005D5F57 /* UINavigationItem+Excursion.m in Sources */,
 				B70AC0971E850FF2005D5F57 /* CBHistoryCollectionViewCell.m in Sources */,
 				B70ABFC61E850E03005D5F57 /* RCDraggableButton.m in Sources */,
+				CC78E4FC1E856C8500580676 /* PSaveTools.m in Sources */,
 				B7C5CB821E84F674009F5AC9 /* HomePageViewController.swift in Sources */,
 				B7C5CB471E84EFC4009F5AC9 /* BaseCollectionViewController.m in Sources */,
 				B7C5CB801E84F674009F5AC9 /* CrossMarkerView.swift in Sources */,
 				B7C5CB5B1E84EFC4009F5AC9 /* UIApplication+Category.m in Sources */,
 				B7C5CB491E84EFC4009F5AC9 /* BaseTabBarController.m in Sources */,
+				CC9140F51E859B4700AFD3DA /* PAboutMeViewController.m in Sources */,
 				B70AC08B1E850FF2005D5F57 /* YMShowImageView.m in Sources */,
 				B7C5CB481E84EFC4009F5AC9 /* BaseNavigationController.m in Sources */,
 				B7C5CB4B1E84EFC4009F5AC9 /* BaseViewConfig.m in Sources */,
@@ -1376,7 +1340,6 @@
 		};
 		505412771E53261C00D951D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF2E5FAB35A290BAFC041E54 /* Pods-Archery Score.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1452,7 +1415,6 @@
 		};
 		505412781E53261C00D951D6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 34B36771D1175639E398E69D /* Pods-Archery Score.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1547,6 +1509,7 @@
 					"$(PROJECT_DIR)/PublicTools/ShareSDK/Support/Optional",
 					"$(PROJECT_DIR)/PublicTools/ShareSDK/Support/PlatformConnector",
 					"$(PROJECT_DIR)/PublicTools/ShareSDK/Support/Required",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				GCC_PREFIX_HEADER = OCAndSwift/OCAndSwift.pch;
 				INFOPLIST_FILE = OCAndSwift/Info.plist;
@@ -1582,6 +1545,7 @@
 					"$(PROJECT_DIR)/PublicTools/ShareSDK/Support/Optional",
 					"$(PROJECT_DIR)/PublicTools/ShareSDK/Support/PlatformConnector",
 					"$(PROJECT_DIR)/PublicTools/ShareSDK/Support/Required",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				GCC_PREFIX_HEADER = OCAndSwift/OCAndSwift.pch;
 				INFOPLIST_FILE = OCAndSwift/Info.plist;

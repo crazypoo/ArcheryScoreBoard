@@ -51,14 +51,11 @@ static NSString * const reuseIdentifier = @"Cell";
 
     navTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
     navTitleLabel.textAlignment = NSTextAlignmentCenter;
-    navTitleLabel.textColor = [UIColor whiteColor];
+    navTitleLabel.textColor = [UIColor blackColor];
     navTitleLabel.font = DEFAULT_FONT(FontName, 24);
     navTitleLabel.text = @"历史记录";
     self.navigationItem.titleView = navTitleLabel;
-
-    CreatReturnButton(@"image_back", backAct:)
-
-
+ 
     // Register cell classes
     [self.collectionView registerClass:[CBHistoryCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     

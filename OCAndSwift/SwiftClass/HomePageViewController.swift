@@ -150,9 +150,10 @@ class HomePageViewController: BaseViewController,SJFluidSegmentedControlDelegate
         }
         
         let stepper = UIStepper.init()
-        stepper.wraps = true
+        stepper.wraps = false
         stepper.maximumValue = 72
-        stepper.minimumValue = 1
+        stepper.minimumValue = 6
+        stepper.stepValue = 6
         stepper.addTarget(self, action: #selector(stepperAction), for: .valueChanged)
         self.view.addSubview(stepper)
         stepper.snp.makeConstraints { (make) in
@@ -236,6 +237,7 @@ class HomePageViewController: BaseViewController,SJFluidSegmentedControlDelegate
 //按钮动作
     func nextAction(sender:UIButton) {
         let targetVC:TargetViewController = TargetViewController()
+        targetVC.title = nameText.text
         targetVC.nbrsArrow = nbrsArrow
         targetVC.nbrsEnd = 0
         targetVC.shooterName = nameText.text
@@ -246,7 +248,7 @@ class HomePageViewController: BaseViewController,SJFluidSegmentedControlDelegate
     }
     
 //数据操作
-    var nbrsArrow : Int = 1 {
+    var nbrsArrow : Int = 6 {
         didSet {
             nbrsArrowLabel.text = String(nbrsArrow)
         }

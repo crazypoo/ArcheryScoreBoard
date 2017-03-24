@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "HealthKitManager.h"
 #import "CBHistoryCollectionViewController.h"
+#import "PAboutMeViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -153,7 +154,7 @@ static NSString *cellIdentifier = @"CELLS";
         case 1:
         {
             UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-            layout.itemSize                    = CGSizeMake((SCREEN_WIDTH-20)/2, (SCREEN_WIDTH-30-HEIGHT_NAVBAR)/2);
+            layout.itemSize                    = CGSizeMake((SCREEN_WIDTH-20)/2, SCREEN_WIDTH-20);
             
             CGFloat paddingY                   = 10;
             CGFloat paddingX                   = 5;
@@ -167,8 +168,8 @@ static NSString *cellIdentifier = @"CELLS";
             break;
         case 2:
         {
-//            PAboutMeViewController *about = [[PAboutMeViewController alloc] init];
-//            [self.navigationController pushViewController:about animated:YES];
+            PAboutMeViewController *about = [[PAboutMeViewController alloc] init];
+            [self.navigationController pushViewController:about animated:YES];
         }
             break;
         default:

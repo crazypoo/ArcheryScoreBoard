@@ -1,6 +1,0 @@
-framework module Pods_Archery_Score {
-  umbrella header "Pods-Archery Score-umbrella.h"
-
-  export *
-  module * { export * }
-}
