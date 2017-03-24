@@ -7,6 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BaseViewController.h"
+#import "BaseTabBarController.h"
+#import "BaseTableViewController.h"
+#import "BaseNavigationController.h"
+#import "BaseCollectionViewController.h"
 
 @interface BaseViewConfig : NSObject
 +(UIImageView *)findHairlineImageViewUnder:(UIView *)view;

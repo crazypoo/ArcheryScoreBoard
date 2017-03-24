@@ -11,7 +11,7 @@ import MobileCoreServices
 import SnapKit
 import AssetsLibrary
 
-class TargetViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class TargetViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     
     //MARK: -Arrow Gesture

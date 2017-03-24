@@ -1,4 +1,4 @@
-platform :ios, '7.1'
+platform :ios, '8.0'
 use_frameworks!
 
 target 'Archery Score' do
@@ -36,5 +36,21 @@ pod 'iCarousel'
 #pod 'EaseUI', :git => 'https://github.com/easemob/easeui-ios-hyphenate-cocoapods.git'
 #pod 'PNChart'
    pod 'Masonry' #适配
+   pod 'SnapKit' #适配
+end
+
+target 'OCAndSwift' do
+	pod 'SDWebImage', '~> 3.7.1'
+	pod 'UIViewController+Swizzled', '~> 1.2'
+
+  pod 'YCXMenu'
+	pod 'FDFullscreenPopGesture', '1.1'
+	pod 'DZNEmptyDataSet'
+  pod 'DHSmartScreenshot'
+
+   pod 'Masonry' #适配
+   pod 'SnapKit' #适配
+     pod 'SJFluidSegmentedControl'
+  pod 'PNChart'
 
 end

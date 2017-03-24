@@ -11,7 +11,7 @@ import PNChart.PNRadarChart
 import PNChart.PNRadarChartDataItem
 import AssetsLibrary
 
-class ResultViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
+class ResultViewController: BaseViewController,UICollectionViewDelegate, UICollectionViewDataSource {
     
     var arrowTab : [Arrow]!
     var nbrsEnd : Int!
@@ -105,6 +105,7 @@ class ResultViewController: UIViewController,UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
         let detailledVC:DetailledTarget = DetailledTarget()
+        detailledVC.arrow = arrowTab[indexPath.item]
         self.navigationController?.pushViewController(detailledVC, animated: true)
     }
     

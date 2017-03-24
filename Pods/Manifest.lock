@@ -13,14 +13,19 @@ PODS:
   - LTNavigationBar (2.0.3)
   - Masonry (1.0.2)
   - MJRefresh (3.1.12)
+  - PNChart (0.8.9):
+    - UICountingLabel (~> 1.2.0)
   - pop (1.0.9)
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
+  - SJFluidSegmentedControl (1.1.2)
+  - SnapKit (3.2.0)
   - TKRoundedView (0.5)
   - TOWebViewController (2.2.6):
     - TOWebViewController/Core (= 2.2.6)
   - TOWebViewController/Core (2.2.6)
+  - UICountingLabel (1.2.0)
   - UITableView+FDTemplateLayoutCell (1.4)
   - UIViewController+Swizzled (1.4)
   - YCXMenu (0.0.11)
@@ -38,8 +43,11 @@ DEPENDENCIES:
   - LTNavigationBar (~> 2.0.3)
   - Masonry
   - MJRefresh
+  - PNChart
   - pop
   - SDWebImage (~> 3.7.1)
+  - SJFluidSegmentedControl
+  - SnapKit
   - TKRoundedView
   - TOWebViewController
   - UITableView+FDTemplateLayoutCell
@@ -59,14 +67,18 @@ SPEC CHECKSUMS:
   LTNavigationBar: 28903730dc6babd80059c391ce095ac179ce454d
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  PNChart: 84774d225c2126ded6c93d4dbe6ae98c3a73c2d2
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  SJFluidSegmentedControl: efd26ea5f0832c715e2750314a2dc0cc81e39ae5
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   TKRoundedView: 0886ec88ad9d8f9c1de7503babecfacc06263920
   TOWebViewController: a29908019f7e0e0f8eccfab8a1ee8dcdf4fc5aac
+  UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
   UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
   UIViewController+Swizzled: 1cd9397598ede6930f94fbcac4b43d63c7aa0dbb
   YCXMenu: 6003bcd20d8ac72e3eb3c442c97ed21948c6dc1f
 
-PODFILE CHECKSUM: eccec594cb4a4b5ed437282094f76f4bca72e875
+PODFILE CHECKSUM: ba33b8725576d0e9ccd3d33a458a2cf85b9cc15b
 
 COCOAPODS: 1.2.0

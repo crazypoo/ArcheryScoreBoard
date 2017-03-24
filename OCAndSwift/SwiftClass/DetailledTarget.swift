@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailledTarget: UIViewController {
+class DetailledTarget: BaseViewController {
     
     
     var arrow : Arrow!
@@ -26,6 +26,7 @@ class DetailledTarget: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.white
         updateUI()
     }
     

@@ -9,7 +9,12 @@
 #ifndef OCAndSwift_pch
 #define OCAndSwift_pch
 
-// Include any system framework and library headers here that should be included in all compilation units.
-// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <Masonry/Masonry.h>
+#import <PTools/PMacros.h>
+#import "BaseViewConfig.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import "PConfigurationTheme.h"
+#import "UIApplication+Category.h"
+#import "OCAndSwift-Swift.h"
 
-#endif /* OCAndSwift_pch */
+#endif
