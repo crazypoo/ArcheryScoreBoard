@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>tgColor</key>
+	<string>235,235,237</string>
+	<key>ggColor</key>
+	<string>0,255,0</string>
+	<key>mgColor</key>
+	<string>255,0,255</string>
+	<key>ygColor</key>
+	<string>255,255,255</string>
+	<key>mrColor</key>
+	<string>0,0,0</string>
+	<key>bgColor</key>
+	<string>255,255,255</string>
+	<key>rgColor</key>
+	<string>215,105,45</string>
+</dict>
+</plist>
