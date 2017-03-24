@@ -175,7 +175,7 @@
     
     NSArray *tA = @[@"需要反馈的内容",@"本机信息"];
     NSString *HeaderString = tA[section];
-    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 40)];
+    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
     titleView.backgroundColor = [UIColor clearColor];
     
     UILabel *HeaderLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 180, 40)];
@@ -203,7 +203,7 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault      reuseIdentifier:CellIdentifier];
 
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            inputViewText = [[PooTextView alloc] initWithFrame:CGRectMake(10, 0, screenWidth-20, 88)];
+            inputViewText = [[PooTextView alloc] initWithFrame:CGRectMake(10, 0, SCREEN_WIDTH-20, 88)];
             inputViewText.placeholder = @"请输入你想说的内容";
             inputViewText.delegate = self;
             inputViewText.returnKeyType = UIReturnKeyDone;

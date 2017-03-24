@@ -7,13 +7,36 @@
 //
 
 #import "ViewController.h"
+#import "HealthKitManager.h"
+#import "CBHistoryCollectionViewController.h"
+
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *tbView;
+    HealthKitManager *healthStore;
+    double stepCount;
+    UILabel *healthLabel;
+    UIActivityIndicatorView *flower;
 }
 @end
 
 @implementation ViewController
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    flower = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    flower.frame = [AppDelegate appDelegate].avatar.bounds;
+    [[AppDelegate appDelegate].avatar addSubview:flower];
+    
+    healthLabel = [[UILabel alloc] initWithFrame:[AppDelegate appDelegate].avatar.bounds];
+    healthLabel.backgroundColor = [UIColor clearColor];
+    healthLabel.textColor = [UIColor lightGrayColor];
+    healthLabel.textAlignment = NSTextAlignmentCenter;
+    [[AppDelegate appDelegate].avatar addSubview:healthLabel];
+    healthLabel.hidden = YES;
+}
 
 -(NSArray *)titleArray
 {
@@ -24,7 +47,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.title = @"主界面";
-//    self.leftNavBtn.hidden = YES;
     
     tbView    = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
     tbView.dataSource                     = self;
@@ -34,6 +56,27 @@
     tbView.separatorStyle                 = UITableViewCellSeparatorStyleSingleLine;
     [self.view addSubview:tbView];
     
+    healthStore = [HealthKitManager shareInstance];
+    if ([HKHealthStore isHealthDataAvailable]) {
+        NSSet *readDataTypes = [self dataTypesToRead];
+        
+        if (!healthStore.healthStore) {
+            healthStore.healthStore = [HKHealthStore new];
+        }
+        
+        [healthStore.healthStore requestAuthorizationToShareTypes:nil readTypes:readDataTypes completion:^(BOOL success, NSError *error) {
+            if (!success) {
+                NSLog(@"You didn't allow HealthKit to access these read data types. In your app, try to handle this error gracefully when a user decides not to provide access. The error was: %@. If you're using a simulator, try it on a device.", error);
+                return;
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"The user allow the app to read information about StepCount");
+            });
+        }];
+    }
+
+    [self stepAllCount];
 }
 
 #pragma mark ---------------> UITableViewDataSource
@@ -86,14 +129,14 @@ static NSString *cellIdentifier = @"CELLS";
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    UIView *fView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0)];
+    UIView *fView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     
     return fView;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *hView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0)];
+    UIView *hView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     return hView;
 }
 
@@ -109,16 +152,16 @@ static NSString *cellIdentifier = @"CELLS";
             break;
         case 1:
         {
-//            UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-//            layout.itemSize                    = CGSizeMake((screenWidth-20)/2, (screenHeight-30-HEIGHT_NAVBAR)/2);
-//            
-//            CGFloat paddingY                   = 10;
-//            CGFloat paddingX                   = 5;
-//            layout.sectionInset                = UIEdgeInsetsMake(paddingY, paddingX, paddingY, paddingX);
-//            layout.minimumLineSpacing          = paddingY;
-//            
-//            CBHistoryCollectionViewController *hV = [[CBHistoryCollectionViewController alloc] initWithCollectionViewLayout:layout];
-//            [self.navigationController pushViewController:hV animated:YES];
+            UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+            layout.itemSize                    = CGSizeMake((SCREEN_WIDTH-20)/2, (SCREEN_WIDTH-30-HEIGHT_NAVBAR)/2);
+            
+            CGFloat paddingY                   = 10;
+            CGFloat paddingX                   = 5;
+            layout.sectionInset                = UIEdgeInsetsMake(paddingY, paddingX, paddingY, paddingX);
+            layout.minimumLineSpacing          = paddingY;
+            
+            CBHistoryCollectionViewController *hV = [[CBHistoryCollectionViewController alloc] initWithCollectionViewLayout:layout];
+            [self.navigationController pushViewController:hV animated:YES];
             
         }
             break;
@@ -133,5 +176,67 @@ static NSString *cellIdentifier = @"CELLS";
     }
 }
 
+- (NSSet *)dataTypesToRead {
+    HKQuantityType *stepType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
+    return [NSSet setWithObjects:stepType, nil];
+}
+
+-(void)stepAllCount
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *interval = [[NSDateComponents alloc] init];
+    interval.day = 1;
+    
+    stepCount = 0;
+    NSDateComponents *anchorComponents = [calendar components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear
+                                                     fromDate:[NSDate date]];
+    anchorComponents.hour = 0;
+    NSDate *anchorDate = [calendar dateFromComponents:anchorComponents];
+    HKQuantityType *quantityType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
+    
+    HKStatisticsCollectionQuery *query =
+    [[HKStatisticsCollectionQuery alloc] initWithQuantityType:quantityType
+                                      quantitySamplePredicate:nil
+                                                      options:HKStatisticsOptionCumulativeSum
+                                                   anchorDate:anchorDate
+                                           intervalComponents:interval];
+    
+    query.initialResultsHandler = ^(HKStatisticsCollectionQuery *query, HKStatisticsCollection *results, NSError *error) {
+        if (error) {
+            NSLog(@"*** An error occurred while calculating the statistics: %@ ***",error.localizedDescription);
+        }
+        
+        NSCalendar *cal = [NSCalendar currentCalendar];
+        NSDateComponents *components = [cal components:( NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond ) fromDate:[[NSDate alloc] init]];
+        
+        [components setHour:-[components hour]];
+        [components setMinute:-[components minute]];
+        [components setSecond:-[components second]];
+        NSDate *today = [cal dateByAddingComponents:components toDate:[[NSDate alloc] init] options:NSCalendarMatchLast];
+        
+        NSDateComponents *component = [cal components:( NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond ) fromDate:[[NSDate alloc] init]];
+        
+        [component setHour:23];
+        [component setMinute:59];
+        [component setSecond:59];
+        NSDate *todayEnd = [cal dateByAddingComponents:component toDate: today options:0];
+        
+        [results enumerateStatisticsFromDate:today toDate:todayEnd withBlock:^(HKStatistics *result, BOOL *stop) {
+            HKQuantity *quantity = result.sumQuantity;
+            
+            if (quantity) {
+                double value = [quantity doubleValueForUnit:[HKUnit countUnit]];
+                stepCount = stepCount + value;
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                healthLabel.hidden = NO;
+                healthLabel.text = [NSString stringWithFormat:@"你当前走了%@步",[NSNumberFormatter localizedStringFromNumber:@(stepCount) numberStyle:NSNumberFormatterNoStyle]];
+                [flower stopAnimating];
+                [flower setHidesWhenStopped:YES];
+            });
+        }];
+    };
+    [healthStore.healthStore executeQuery:query];
+}
 
 @end

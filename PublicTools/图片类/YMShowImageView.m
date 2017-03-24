@@ -126,7 +126,7 @@
         [imageScrollView addSubview:nilViews];
 
 
-        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, imageScrollView.height-80, screenWidth-20, 40)];
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, imageScrollView.height-80, SCREEN_WIDTH-20, 40)];
         titleLabel.textAlignment = NSTextAlignmentLeft;
         titleLabel.textColor     = [UIColor whiteColor];
         titleLabel.font          = DEFAULT_FONT(FontName, 16);
@@ -136,7 +136,7 @@
         titleLabel.hidden        = titleLabel.text.length == 0;
         [imageScrollView addSubview:titleLabel];
 
-        UILabel *infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, imageScrollView.height-40, screenWidth-20, 40)];
+        UILabel *infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, imageScrollView.height-40, SCREEN_WIDTH-20, 40)];
         infoLabel.textAlignment = NSTextAlignmentLeft;
         infoLabel.textColor     = [UIColor whiteColor];
         infoLabel.font          = DEFAULT_FONT(FontName, 16);
@@ -206,7 +206,7 @@
 }
 
 - (void)showWithFinish:(didRemoveImage)tempBlock{
-    UIView *maskview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
+    UIView *maskview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     maskview.backgroundColor = [UIColor blackColor];
     [[AppDelegate appDelegate].window addSubview:maskview];
     
