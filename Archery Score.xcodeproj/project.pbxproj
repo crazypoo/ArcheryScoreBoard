@@ -1520,8 +1520,38 @@
 					"$(PROJECT_DIR)/PublicTools/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
 					"$(PROJECT_DIR)/PublicTools/ShareSDK/Support/PlatformSDK/WeChatSDK",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"DHSmartScreenshot\"",
+					"-framework",
+					"\"DZNEmptyDataSet\"",
+					"-framework",
+					"\"FDFullscreenPopGesture\"",
+					"-framework",
+					"\"Masonry\"",
+					"-framework",
+					"\"PNChart\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"SJFluidSegmentedControl\"",
+					"-framework",
+					"\"SnapKit\"",
+					"-framework",
+					"\"UICountingLabel\"",
+					"-framework",
+					"\"UIViewController_Swizzled\"",
+					"-framework",
+					"\"YCXMenu\"",
+					"-framework",
+					"\"iCarousel\"",
+					"-Objc",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.omcn.OCAndSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "OCAndSwift/OCAndSwift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1556,8 +1586,38 @@
 					"$(PROJECT_DIR)/PublicTools/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
 					"$(PROJECT_DIR)/PublicTools/ShareSDK/Support/PlatformSDK/WeChatSDK",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"DHSmartScreenshot\"",
+					"-framework",
+					"\"DZNEmptyDataSet\"",
+					"-framework",
+					"\"FDFullscreenPopGesture\"",
+					"-framework",
+					"\"Masonry\"",
+					"-framework",
+					"\"PNChart\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"SJFluidSegmentedControl\"",
+					"-framework",
+					"\"SnapKit\"",
+					"-framework",
+					"\"UICountingLabel\"",
+					"-framework",
+					"\"UIViewController_Swizzled\"",
+					"-framework",
+					"\"YCXMenu\"",
+					"-framework",
+					"\"iCarousel\"",
+					"-Objc",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.omcn.OCAndSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "OCAndSwift/OCAndSwift-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

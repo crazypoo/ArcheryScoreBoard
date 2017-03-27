@@ -96,7 +96,6 @@
     [self.leftNavBtn addTarget:self action:@selector(backAct:) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:self.leftNavBtn]];
 
-    self.navColor = PRGBAColor(0, 149, 227,1);
     if (self.navColor) {
         [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:self.navColor] forBarMetrics:UIBarMetricsDefault];
     }

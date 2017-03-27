@@ -28,7 +28,6 @@
 #define RC_WAITING_KEYWINDOW_AVAILABLE 0.f
 #define RC_AUTODOCKING_ANIMATE_DURATION 0.2f
 #define RC_DOUBLE_TAP_TIME_INTERVAL 0.36f
-
 @implementation RCDraggableButton
 @synthesize draggable = _draggable;
 @synthesize autoDocking = _autoDocking;

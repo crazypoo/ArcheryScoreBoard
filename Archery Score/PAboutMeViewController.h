@@ -6,8 +6,8 @@
 //  Copyright © 2017年 邓杰豪. All rights reserved.
 //
 
-#import "LBaseViewController.h"
+#import "BaseViewController.h"
 
-@interface PAboutMeViewController : LBaseViewController
+@interface PAboutMeViewController : BaseViewController
 
 @end

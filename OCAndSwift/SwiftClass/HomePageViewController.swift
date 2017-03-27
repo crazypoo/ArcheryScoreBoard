@@ -44,7 +44,7 @@ class HomePageViewController: BaseViewController,SJFluidSegmentedControlDelegate
             make.width.equalTo(self.view.frame.size.width-20)
             make.height.equalTo(30)
             make.centerX.equalTo(self.view)
-            make.top.equalTo(64)
+            make.top.equalTo(0)
         }
         
         let currentDate = Date()
