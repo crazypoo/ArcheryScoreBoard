@@ -14,7 +14,7 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
-                        <label width="135" height="90" alignment="left" text="Label" id="vuh-vJ-U4b"/>
+                        <label width="135" height="90" alignment="left" text="当前走了0步" id="vuh-vJ-U4b"/>
                     </items>
                     <connections>
                         <outlet property="stepLabel" destination="vuh-vJ-U4b" id="jqC-It-Ct8"/>
