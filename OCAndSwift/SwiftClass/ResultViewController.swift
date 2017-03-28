@@ -57,7 +57,7 @@ class ResultViewController: BaseViewController,UITableViewDataSource,UITableView
         
         self.navigationItem.setRightBarButton(UIBarButtonItem.init(title: "更多操作", style: UIBarButtonItemStyle.done, target: self, action: #selector(self.goBack(_:))), animated: true)
         
-        tbView = UITableView.init(frame: self.view.bounds, style: .plain)
+        tbView = UITableView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height-64), style: .plain)
         tbView.delegate = self
         tbView.dataSource = self
         self.view.addSubview(tbView)

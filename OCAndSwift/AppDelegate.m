@@ -148,6 +148,11 @@
         NSLog(@"FileDir is exists.");
     }
     
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"ALLCOUNT"]) {
+        [[NSUserDefaults standardUserDefaults] setObject:0 forKey:@"ALLCOUNT"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

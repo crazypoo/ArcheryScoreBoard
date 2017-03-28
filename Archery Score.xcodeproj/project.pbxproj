@@ -1945,6 +1945,7 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = TargetInfo/TargetInfo.entitlements;
 				DEVELOPMENT_TEAM = 4J78PPRJ42;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IBSC_MODULE = TargetInfo_Extension;
 				INFOPLIST_FILE = TargetInfo/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.omcn.Archery-Score.watchkitapp";
@@ -1963,6 +1964,7 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = TargetInfo/TargetInfo.entitlements;
 				DEVELOPMENT_TEAM = 4J78PPRJ42;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IBSC_MODULE = TargetInfo_Extension;
 				INFOPLIST_FILE = TargetInfo/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.omcn.Archery-Score.watchkitapp";

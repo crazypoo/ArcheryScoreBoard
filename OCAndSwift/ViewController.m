@@ -44,25 +44,6 @@
     healthLabel.textAlignment = NSTextAlignmentCenter;
     [[AppDelegate appDelegate].avatar addSubview:healthLabel];
     healthLabel.hidden = YES;
-}
-
--(NSArray *)titleArray
-{
-    return @[@"新开始",@"历史",@"关于我"];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    self.title = @"主界面";
-    
-    tbView    = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
-    tbView.dataSource                     = self;
-    tbView.delegate                       = self;
-    tbView.showsHorizontalScrollIndicator = NO;
-    tbView.showsVerticalScrollIndicator   = NO;
-    tbView.separatorStyle                 = UITableViewCellSeparatorStyleSingleLine;
-    [self.view addSubview:tbView];
     
     healthStore = [HealthKitManager shareInstance];
     if ([HKHealthStore isHealthDataAvailable]) {
@@ -83,8 +64,29 @@
             });
         }];
     }
-
+    
     [self stepAllCount];
+
+}
+
+-(NSArray *)titleArray
+{
+    return @[@"新开始",@"历史",@"关于我"];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    self.title = @"主界面";
+    
+    tbView    = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
+    tbView.dataSource                     = self;
+    tbView.delegate                       = self;
+    tbView.showsHorizontalScrollIndicator = NO;
+    tbView.showsVerticalScrollIndicator   = NO;
+    tbView.separatorStyle                 = UITableViewCellSeparatorStyleSingleLine;
+    [self.view addSubview:tbView];
+    
 }
 
 #pragma mark ---------------> UITableViewDataSource
@@ -244,7 +246,7 @@ static NSString *cellIdentifier = @"CELLS";
                 
                 WCSession *session = [WCSession defaultSession];
                 
-                NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:healthLabel.text,@"STEP", nil];
+                NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:healthLabel.text,@"STEP",[[NSUserDefaults standardUserDefaults] objectForKey:@"ALLCOUNT"],@"ALLCOUNT", nil];
                 
                 [session sendMessage:dic replyHandler:^(NSDictionary<NSString *,id> * _Nonnull replyMessage) {
                     NSLog(@"replay: %@", replyMessage);

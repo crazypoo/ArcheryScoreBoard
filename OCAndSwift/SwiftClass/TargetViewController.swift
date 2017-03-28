@@ -347,21 +347,21 @@ class TargetViewController: BaseViewController, UIImagePickerControllerDelegate,
             make.top.equalTo(20)
             make.centerX.equalTo(self.view)
             make.width.equalTo(200)
-            make.height.equalTo(44)
+            make.height.equalTo(24)
         }
         
-        backBtn = UIButton.init(type: .custom)
-        backBtn.setTitleColor(UIColor.blue, for: .normal)
-        backBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        backBtn.setTitle("返回", for: .normal)
-        backBtn.addTarget(self, action: #selector(self.goBack(sender:)), for: .touchUpInside)
-        self.view.addSubview(backBtn)
-        backBtn.snp.makeConstraints { (make) in
-            make.left.equalTo(12)
-            make.top.equalTo(20)
-            make.width.equalTo(50)
-            make.height.equalTo(44)
-        }
+//        backBtn = UIButton.init(type: .custom)
+//        backBtn.setTitleColor(UIColor.blue, for: .normal)
+//        backBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+//        backBtn.setTitle("返回", for: .normal)
+//        backBtn.addTarget(self, action: #selector(self.goBack(sender:)), for: .touchUpInside)
+//        self.view.addSubview(backBtn)
+//        backBtn.snp.makeConstraints { (make) in
+//            make.left.equalTo(12)
+//            make.top.equalTo(20)
+//            make.width.equalTo(50)
+//            make.height.equalTo(44)
+//        }
 
         TargetView = UIImageView.init()
         TargetView.image = UIImage.init(named: "TargetImage")
@@ -635,13 +635,13 @@ class TargetViewController: BaseViewController, UIImagePickerControllerDelegate,
     }
 
     
-    func goBack(sender:UIButton)
-    {
-        let homeVC:HomePageViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomePageViewController") as! HomePageViewController
-        self.present(homeVC, animated: true) { 
-            
-        }
-    }
+//    func goBack(sender:UIButton)
+//    {
+//        let homeVC:HomePageViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomePageViewController") as! HomePageViewController
+//        self.present(homeVC, animated: true) { 
+//            
+//        }
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -650,6 +650,10 @@ class TargetViewController: BaseViewController, UIImagePickerControllerDelegate,
     var image = UIImage()
     
     func takePhoto() {
+        
+        let count:Int = UserDefaults.standard.object(forKey: "ALLCOUNT") as! Int
+        UserDefaults.standard.set(count + nbrsArrow, forKey: "ALLCOUNT")
+        UserDefaults.standard.synchronize()
         
         CorrectButton.isHidden = true
         SendButton.isHidden = true

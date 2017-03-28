@@ -11,6 +11,7 @@
 
 @interface InterfaceController ()
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *stepLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *allArrows;
 
 @end
 
@@ -47,10 +48,13 @@
     
     dispatch_async(dispatch_get_main_queue(), ^{
         //回调或者说是通知主线程刷新，
+        NSString *str = [NSString stringWithFormat:@"一共射了%@箭",[message objectForKey:@"ALLCOUNT"]];
         [self.stepLabel setText:[message objectForKey:@"STEP"]];
-        NSLog(@"%@",[message objectForKey:@"STEP"]);
+        [self.allArrows setText:str];
+
+        NSLog(@"%@",[message objectForKey:@"ALLCOUNT"]);
     });
-    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:@"李四1111",@"STEP", nil];
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:@"李四1111",@"STEP",@"1",@"ALLCOUNT", nil];
 
     replyHandler(dic);
 }
