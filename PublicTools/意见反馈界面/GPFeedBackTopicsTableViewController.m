@@ -26,7 +26,7 @@
     [super viewDidLoad];
     self.title = @"反馈主题";
     
-    CreatReturnButton(@"image_back", backAct:)
+//    CreatReturnButton(@"image_back", backAct:)
 
 }
 

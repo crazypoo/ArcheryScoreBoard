@@ -32,6 +32,10 @@ static NSString * const reuseIdentifier = @"Cell";
         [self.navigationController.navigationBar setBackgroundImage:[BaseViewConfig createImageWithColor:self.navColor] forBarMetrics:UIBarMetricsDefault];
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     }
+    else
+    {
+        [self.navigationController.navigationBar setBackgroundImage:[BaseViewConfig createImageWithColor:[UIColor whiteColor]] forBarMetrics:UIBarMetricsDefault];
+    }
     
     if (self.isHideNavLine) {
         navigationImageView = [BaseViewConfig findHairlineImageViewUnder:self.navigationController.navigationBar];

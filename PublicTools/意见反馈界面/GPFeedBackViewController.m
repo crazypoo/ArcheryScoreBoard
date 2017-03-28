@@ -101,7 +101,7 @@
 }
 
 -(void)buildNav{
-    CreatReturnButton(@"image_back", backAct:)
+//    CreatReturnButton(@"image_back", backAct:)
 }
 
 -(void)backAct:(id)sender{

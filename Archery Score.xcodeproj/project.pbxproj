@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		311FEA69BB4AF49E99801720 /* Pods_Archery_Score.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737B73C76B382F3FCD12B745 /* Pods_Archery_Score.framework */; };
 		5011B4171E532F4700C49365 /* PTargetOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5011B4161E532F4700C49365 /* PTargetOptionViewController.m */; };
 		5011B41B1E53470D00C49365 /* PooSegView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5011B41A1E53470D00C49365 /* PooSegView.m */; };
 		5011B41F1E54F04300C49365 /* PCalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5011B41E1E54F04300C49365 /* PCalculatorViewController.m */; };
@@ -430,6 +431,8 @@
 		CCA695DC1E5B792400A30E93 /* PAboutMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAboutMeViewController.h; sourceTree = "<group>"; };
 		CCA695DD1E5B792400A30E93 /* PAboutMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAboutMeViewController.m; sourceTree = "<group>"; };
 		CCA695EA1E5B90E900A30E93 /* iCarousel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iCarousel.framework; path = "Pods/../build/Debug-iphoneos/iCarousel/iCarousel.framework"; sourceTree = "<group>"; };
+		D91947DA66C6D33860CC1DCE /* Pods-Archery Score.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Archery Score.release.xcconfig"; path = "Pods/Target Support Files/Pods-Archery Score/Pods-Archery Score.release.xcconfig"; sourceTree = "<group>"; };
+		DAD4FA92B3555463B948361F /* Pods-Archery Score.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Archery Score.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Archery Score/Pods-Archery Score.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -478,6 +481,7 @@
 				5011B42D1E562FEC00C49365 /* DHSmartScreenshot.framework in Frameworks */,
 				5011B42B1E55D99A00C49365 /* IQKeyboardManager.framework in Frameworks */,
 				5011B4211E54F13C00C49365 /* UIViewController_Swizzled.framework in Frameworks */,
+				311FEA69BB4AF49E99801720 /* Pods_Archery_Score.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,6 +545,8 @@
 			children = (
 				372854880596684D8A2A8D95 /* Pods-OCAndSwift.debug.xcconfig */,
 				AACFED40E3FF1027C4DDC6FD /* Pods-OCAndSwift.release.xcconfig */,
+				DAD4FA92B3555463B948361F /* Pods-Archery Score.debug.xcconfig */,
+				D91947DA66C6D33860CC1DCE /* Pods-Archery Score.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1072,10 +1078,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 505412761E53261C00D951D6 /* Build configuration list for PBXNativeTarget "Archery Score" */;
 			buildPhases = (
+				53AC45CADDFAE448F28785DA /* [CP] Check Pods Manifest.lock */,
 				5054125B1E53261C00D951D6 /* Sources */,
 				5054125C1E53261C00D951D6 /* Frameworks */,
 				5054125D1E53261C00D951D6 /* Resources */,
 				508F8CCD1E5C699700E2C5BA /* Embed Frameworks */,
+				B07A7E96947E74E50303A4A5 /* [CP] Embed Pods Frameworks */,
+				730A85F85369796C3B9074EB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1279,6 +1288,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		53AC45CADDFAE448F28785DA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		68E810E006DCB58C639E2210 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1292,6 +1316,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OCAndSwift/Pods-OCAndSwift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		730A85F85369796C3B9074EB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Archery Score/Pods-Archery Score-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A9E6870231E4DEE069A7F317 /* [CP] Embed Pods Frameworks */ = {
@@ -1322,6 +1361,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B07A7E96947E74E50303A4A5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Archery Score/Pods-Archery Score-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1559,6 +1613,7 @@
 		};
 		505412771E53261C00D951D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAD4FA92B3555463B948361F /* Pods-Archery Score.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1634,6 +1689,7 @@
 		};
 		505412781E53261C00D951D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D91947DA66C6D33860CC1DCE /* Pods-Archery Score.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1771,6 +1827,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.omcn.Archery-Score";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "OCAndSwift/OCAndSwift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1838,6 +1895,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.omcn.Archery-Score";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "OCAndSwift/OCAndSwift-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
