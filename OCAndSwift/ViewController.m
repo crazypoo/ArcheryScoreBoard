@@ -10,8 +10,9 @@
 #import "HealthKitManager.h"
 #import "CBHistoryCollectionViewController.h"
 #import "PAboutMeViewController.h"
+#import <WatchConnectivity/WatchConnectivity.h>
 
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource,WCSessionDelegate>
 {
     UITableView *tbView;
     HealthKitManager *healthStore;
@@ -26,6 +27,12 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    if([WCSession isSupported]){
+        WCSession *session = [WCSession defaultSession];
+        session.delegate = self;
+        [session activateSession];
+    }
     
     flower = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     flower.frame = [AppDelegate appDelegate].avatar.bounds;
@@ -234,10 +241,20 @@ static NSString *cellIdentifier = @"CELLS";
                 healthLabel.text = [NSString stringWithFormat:@"你当前走了%@步",[NSNumberFormatter localizedStringFromNumber:@(stepCount) numberStyle:NSNumberFormatterNoStyle]];
                 [flower stopAnimating];
                 [flower setHidesWhenStopped:YES];
+                
+                WCSession *session = [WCSession defaultSession];
+                
+                NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:healthLabel.text,@"STEP", nil];
+                
+                [session sendMessage:dic replyHandler:^(NSDictionary<NSString *,id> * _Nonnull replyMessage) {
+                    NSLog(@"replay: %@", replyMessage);
+                    
+                } errorHandler:^(NSError * _Nonnull error) {
+                    NSLog(@"Error: %@", error);
+                }];
             });
         }];
     };
     [healthStore.healthStore executeQuery:query];
 }
-
 @end
