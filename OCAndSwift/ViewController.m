@@ -87,6 +87,7 @@
     tbView.separatorStyle                 = UITableViewCellSeparatorStyleSingleLine;
     [self.view addSubview:tbView];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stepAllCount) name:UIApplicationWillResignActiveNotification object:nil];
 }
 
 #pragma mark ---------------> UITableViewDataSource
@@ -246,8 +247,12 @@ static NSString *cellIdentifier = @"CELLS";
                 
                 WCSession *session = [WCSession defaultSession];
                 
-                NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:healthLabel.text,@"STEP",[[NSUserDefaults standardUserDefaults] objectForKey:@"ALLCOUNT"],@"ALLCOUNT", nil];
+                NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"group.com.omcn.Archery"],@"group.com.omcn.Archery", nil];
                 
+                NSUserDefaults* userDefault = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.omcn.Archery"];
+                [userDefault setObject:[[NSUserDefaults standardUserDefaults] objectForKey:@"group.com.omcn.Archery"] forKey:@"group.com.omcn.Archery"];
+                
+
                 [session sendMessage:dic replyHandler:^(NSDictionary<NSString *,id> * _Nonnull replyMessage) {
                     NSLog(@"replay: %@", replyMessage);
                     

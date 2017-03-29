@@ -163,6 +163,10 @@
 		B7C5CB831E84F674009F5AC9 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5CB7B1E84F674009F5AC9 /* ResultViewController.swift */; };
 		B7C5CB841E84F674009F5AC9 /* Shot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5CB7C1E84F674009F5AC9 /* Shot.swift */; };
 		B7C5CB861E84F674009F5AC9 /* TargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5CB7E1E84F674009F5AC9 /* TargetViewController.swift */; };
+		B7DD1CB91E8B773E007AC058 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7DD1CB81E8B773E007AC058 /* NotificationCenter.framework */; };
+		B7DD1CBD1E8B773F007AC058 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7DD1CBC1E8B773E007AC058 /* TodayViewController.m */; };
+		B7DD1CC01E8B773F007AC058 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7DD1CBE1E8B773F007AC058 /* MainInterface.storyboard */; };
+		B7DD1CC41E8B773F007AC058 /* NofiCenter.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B7DD1CB71E8B773E007AC058 /* NofiCenter.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CC2514081E85872F00ADBDA4 /* PResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2514071E85872F00ADBDA4 /* PResultTableViewCell.swift */; };
 		CC2C84051E8AA41E005CAB96 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC2C84031E8AA41E005CAB96 /* Interface.storyboard */; };
 		CC2C84071E8AA41E005CAB96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC2C84061E8AA41E005CAB96 /* Assets.xcassets */; };
@@ -184,6 +188,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B7DD1CC21E8B773F007AC058 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 505412571E53261C00D951D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B7DD1CB61E8B773E007AC058;
+			remoteInfo = NofiCenter;
+		};
 		CC2C840F1E8AA41E005CAB96 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 505412571E53261C00D951D6 /* Project object */;
@@ -209,6 +220,17 @@
 			files = (
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7DD1CC81E8B773F007AC058 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B7DD1CC41E8B773F007AC058 /* NofiCenter.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		CC2C84261E8AA41E005CAB96 /* Embed App Extensions */ = {
@@ -406,6 +428,13 @@
 		B7C5CB7B1E84F674009F5AC9 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		B7C5CB7C1E84F674009F5AC9 /* Shot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shot.swift; sourceTree = "<group>"; };
 		B7C5CB7E1E84F674009F5AC9 /* TargetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetViewController.swift; sourceTree = "<group>"; };
+		B7DD1CB71E8B773E007AC058 /* NofiCenter.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NofiCenter.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7DD1CB81E8B773E007AC058 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		B7DD1CBB1E8B773E007AC058 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		B7DD1CBC1E8B773E007AC058 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		B7DD1CBF1E8B773F007AC058 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		B7DD1CC11E8B773F007AC058 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7DD1CC91E8B7752007AC058 /* NofiCenter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NofiCenter.entitlements; sourceTree = "<group>"; };
 		CC2514071E85872F00ADBDA4 /* PResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PResultTableViewCell.swift; sourceTree = "<group>"; };
 		CC2C84011E8AA41D005CAB96 /* TargetInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TargetInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC2C84041E8AA41E005CAB96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -530,6 +559,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B7DD1CB41E8B773E007AC058 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7DD1CB91E8B773E007AC058 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CC2C840A1E8AA41E005CAB96 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -598,6 +635,7 @@
 				B7C5CB001E84E988009F5AC9 /* OCAndSwift */,
 				CC2C84021E8AA41E005CAB96 /* TargetInfo */,
 				CC2C84111E8AA41E005CAB96 /* TargetInfo Extension */,
+				B7DD1CBA1E8B773E007AC058 /* NofiCenter */,
 				505412601E53261C00D951D6 /* Products */,
 				2E1BA977517A05B00F2C7668 /* Pods */,
 				79934EEAB256FC6E52C5DE7F /* Frameworks */,
@@ -611,6 +649,7 @@
 				B7C5CAFF1E84E988009F5AC9 /* OCAndSwift.app */,
 				CC2C84011E8AA41D005CAB96 /* TargetInfo.app */,
 				CC2C840D1E8AA41E005CAB96 /* TargetInfo Extension.appex */,
+				B7DD1CB71E8B773E007AC058 /* NofiCenter.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -716,6 +755,7 @@
 				5011B4201E54F13C00C49365 /* UIViewController_Swizzled.framework */,
 				737B73C76B382F3FCD12B745 /* Pods_Archery_Score.framework */,
 				7AB6026884472B0CD23A4BB0 /* Pods_OCAndSwift.framework */,
+				B7DD1CB81E8B773E007AC058 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1026,6 +1066,18 @@
 			path = SwiftClass;
 			sourceTree = "<group>";
 		};
+		B7DD1CBA1E8B773E007AC058 /* NofiCenter */ = {
+			isa = PBXGroup;
+			children = (
+				B7DD1CC91E8B7752007AC058 /* NofiCenter.entitlements */,
+				B7DD1CBB1E8B773E007AC058 /* TodayViewController.h */,
+				B7DD1CBC1E8B773E007AC058 /* TodayViewController.m */,
+				B7DD1CBE1E8B773F007AC058 /* MainInterface.storyboard */,
+				B7DD1CC11E8B773F007AC058 /* Info.plist */,
+			);
+			path = NofiCenter;
+			sourceTree = "<group>";
+		};
 		CC2C84021E8AA41E005CAB96 /* TargetInfo */ = {
 			isa = PBXGroup;
 			children = (
@@ -1106,16 +1158,35 @@
 				A9E6870231E4DEE069A7F317 /* [CP] Embed Pods Frameworks */,
 				68E810E006DCB58C639E2210 /* [CP] Copy Pods Resources */,
 				CC2C842A1E8AA41E005CAB96 /* Embed Watch Content */,
+				B7DD1CC81E8B773F007AC058 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				CC2C84211E8AA41E005CAB96 /* PBXTargetDependency */,
+				B7DD1CC31E8B773F007AC058 /* PBXTargetDependency */,
 			);
 			name = OCAndSwift;
 			productName = OCAndSwift;
 			productReference = B7C5CAFF1E84E988009F5AC9 /* OCAndSwift.app */;
 			productType = "com.apple.product-type.application";
+		};
+		B7DD1CB61E8B773E007AC058 /* NofiCenter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7DD1CC71E8B773F007AC058 /* Build configuration list for PBXNativeTarget "NofiCenter" */;
+			buildPhases = (
+				B7DD1CB31E8B773E007AC058 /* Sources */,
+				B7DD1CB41E8B773E007AC058 /* Frameworks */,
+				B7DD1CB51E8B773E007AC058 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NofiCenter;
+			productName = NofiCenter;
+			productReference = B7DD1CB71E8B773E007AC058 /* NofiCenter.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		CC2C84001E8AA41D005CAB96 /* TargetInfo */ = {
 			isa = PBXNativeTarget;
@@ -1181,6 +1252,16 @@
 							};
 						};
 					};
+					B7DD1CB61E8B773E007AC058 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 4J78PPRJ42;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					CC2C84001E8AA41D005CAB96 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 4J78PPRJ42;
@@ -1220,6 +1301,7 @@
 				B7C5CAFE1E84E988009F5AC9 /* OCAndSwift */,
 				CC2C84001E8AA41D005CAB96 /* TargetInfo */,
 				CC2C840C1E8AA41E005CAB96 /* TargetInfo Extension */,
+				B7DD1CB61E8B773E007AC058 /* NofiCenter */,
 			);
 		};
 /* End PBXProject section */
@@ -1265,6 +1347,14 @@
 				B7C5CB521E84EFC4009F5AC9 /* icon-01_02@2x.png in Resources */,
 				B7C5CB5A1E84EFC4009F5AC9 /* selectIcon-01_04@2x.png in Resources */,
 				B7C5CB4E1E84EFC4009F5AC9 /* fontColor.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7DD1CB51E8B773E007AC058 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7DD1CC01E8B773F007AC058 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1452,6 +1542,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B7DD1CB31E8B773E007AC058 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7DD1CBD1E8B773F007AC058 /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CC2C84091E8AA41E005CAB96 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1465,6 +1563,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B7DD1CC31E8B773F007AC058 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B7DD1CB61E8B773E007AC058 /* NofiCenter */;
+			targetProxy = B7DD1CC21E8B773F007AC058 /* PBXContainerItemProxy */;
+		};
 		CC2C84101E8AA41E005CAB96 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CC2C840C1E8AA41E005CAB96 /* TargetInfo Extension */;
@@ -1508,6 +1611,14 @@
 				B7C5CB101E84E988009F5AC9 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		B7DD1CBE1E8B773F007AC058 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B7DD1CBF1E8B773F007AC058 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 		CC2C84031E8AA41E005CAB96 /* Interface.storyboard */ = {
@@ -1902,6 +2013,36 @@
 			};
 			name = Release;
 		};
+		B7DD1CC51E8B773F007AC058 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = NofiCenter/NofiCenter.entitlements;
+				DEVELOPMENT_TEAM = 4J78PPRJ42;
+				INFOPLIST_FILE = NofiCenter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.omcn.Archery-Score.NofiCenter";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B7DD1CC61E8B773F007AC058 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = NofiCenter/NofiCenter.entitlements;
+				DEVELOPMENT_TEAM = 4J78PPRJ42;
+				INFOPLIST_FILE = NofiCenter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.omcn.Archery-Score.NofiCenter";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		CC2C84241E8AA41E005CAB96 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2005,6 +2146,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		B7DD1CC71E8B773F007AC058 /* Build configuration list for PBXNativeTarget "NofiCenter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7DD1CC51E8B773F007AC058 /* Debug */,
+				B7DD1CC61E8B773F007AC058 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		CC2C84231E8AA41E005CAB96 /* Build configuration list for PBXNativeTarget "TargetInfo Extension" */ = {
 			isa = XCConfigurationList;

@@ -148,8 +148,8 @@
         NSLog(@"FileDir is exists.");
     }
     
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"ALLCOUNT"]) {
-        [[NSUserDefaults standardUserDefaults] setObject:0 forKey:@"ALLCOUNT"];
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"group.com.omcn.Archery"]) {
+        [[NSUserDefaults standardUserDefaults] setObject:0 forKey:@"group.com.omcn.Archery"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 

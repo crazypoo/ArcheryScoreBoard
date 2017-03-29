@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12118" systemVersion="16F43c" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -14,12 +14,10 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
-                        <label width="135" height="77" alignment="left" text="当前走了0步" id="vuh-vJ-U4b"/>
                         <label width="136" height="69" alignment="left" text="一共射了0箭" id="qt7-O1-aCN"/>
                     </items>
                     <connections>
                         <outlet property="allArrows" destination="qt7-O1-aCN" id="364-7G-qqE"/>
-                        <outlet property="stepLabel" destination="vuh-vJ-U4b" id="jqC-It-Ct8"/>
                     </connections>
                 </controller>
             </objects>
