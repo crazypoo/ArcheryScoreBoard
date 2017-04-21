@@ -12,13 +12,14 @@
 
 @interface PooAlertView : UIView
 
-@property (nonatomic, retain) UIView *parentView;
 @property (nonatomic, retain) UIView *dialogView;
-@property (nonatomic, retain) UIView *containerView;
-@property (nonatomic, retain) UIView *buttonView;
 @property (nonatomic, assign) id<PooAlertViewDelegate> delegate;
-@property (nonatomic, retain) NSMutableArray *buttonTitles;
 @property (nonatomic, retain) UIButton *closeButton;
+@property (nonatomic, assign) CGFloat containerViewHeight;
+//添加标题数组，颜色也必定要添加
+@property (nonatomic, retain) NSMutableArray *buttonTitles;
+@property (nonatomic, strong) NSMutableArray *buttonTitleColorNormal;
+@property (nonatomic, strong) NSMutableArray *buttonTitleColorSelected;
 
 - (id)initWithParentView: (UIView *)_parentView;
 - (void)show;

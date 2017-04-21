@@ -46,7 +46,6 @@
 		508F8B151E5C64FC00E2C5BA /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 508F8B141E5C64FC00E2C5BA /* libiconv.tbd */; };
 		88F533F6130CC845C2B410BE /* Pods_OCAndSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB6026884472B0CD23A4BB0 /* Pods_OCAndSwift.framework */; };
 		B70ABFC51E850E03005D5F57 /* HealthKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B70ABFC21E850E03005D5F57 /* HealthKitManager.m */; };
-		B70ABFC61E850E03005D5F57 /* RCDraggableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B70ABFC41E850E03005D5F57 /* RCDraggableButton.m */; };
 		B70AC0021E850F05005D5F57 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 508F8B141E5C64FC00E2C5BA /* libiconv.tbd */; };
 		B70AC0031E850F0D005D5F57 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5011B48F1E58D5CF00C49365 /* libsqlite3.tbd */; };
 		B70AC0041E850F1C005D5F57 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 508F8B121E5C64EA00E2C5BA /* libstdc++.6.0.9.tbd */; };
@@ -113,16 +112,12 @@
 		B70AC08D1E850FF2005D5F57 /* GPFeedBackTopicsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B70AC0501E850FF2005D5F57 /* GPFeedBackTopicsTableViewController.m */; };
 		B70AC08E1E850FF2005D5F57 /* GPFeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B70AC0521E850FF2005D5F57 /* GPFeedBackViewController.m */; };
 		B70AC08F1E850FF2005D5F57 /* GPFeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B70AC0521E850FF2005D5F57 /* GPFeedBackViewController.m */; };
-		B70AC0901E850FF2005D5F57 /* ALActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = B70AC0551E850FF2005D5F57 /* ALActionSheetView.m */; };
-		B70AC0911E850FF2005D5F57 /* ALActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = B70AC0551E850FF2005D5F57 /* ALActionSheetView.m */; };
 		B70AC0921E850FF2005D5F57 /* CBHistoryCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B70AC0581E850FF2005D5F57 /* CBHistoryCollectionViewController.m */; };
 		B70AC0931E850FF2005D5F57 /* CBHistoryCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B70AC0581E850FF2005D5F57 /* CBHistoryCollectionViewController.m */; };
 		B70AC0941E850FF2005D5F57 /* CBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B70AC05B1E850FF2005D5F57 /* CBButton.m */; };
 		B70AC0951E850FF2005D5F57 /* CBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B70AC05B1E850FF2005D5F57 /* CBButton.m */; };
 		B70AC0961E850FF2005D5F57 /* CBHistoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B70AC05D1E850FF2005D5F57 /* CBHistoryCollectionViewCell.m */; };
 		B70AC0971E850FF2005D5F57 /* CBHistoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B70AC05D1E850FF2005D5F57 /* CBHistoryCollectionViewCell.m */; };
-		B70AC09B1E85108A005D5F57 /* PooTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B70AC09A1E85108A005D5F57 /* PooTextView.m */; };
-		B70AC09C1E85108A005D5F57 /* PooTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B70AC09A1E85108A005D5F57 /* PooTextView.m */; };
 		B71A713F1E723F70005C1F68 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B71A713E1E723F70005C1F68 /* Masonry.framework */; };
 		B7C5CB031E84E988009F5AC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B7C5CB021E84E988009F5AC9 /* main.m */; };
 		B7C5CB061E84E988009F5AC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B7C5CB051E84E988009F5AC9 /* AppDelegate.m */; };
@@ -313,8 +308,6 @@
 		AACFED40E3FF1027C4DDC6FD /* Pods-OCAndSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCAndSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-OCAndSwift/Pods-OCAndSwift.release.xcconfig"; sourceTree = "<group>"; };
 		B70ABFC11E850E03005D5F57 /* HealthKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthKitManager.h; sourceTree = "<group>"; };
 		B70ABFC21E850E03005D5F57 /* HealthKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthKitManager.m; sourceTree = "<group>"; };
-		B70ABFC31E850E03005D5F57 /* RCDraggableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDraggableButton.h; sourceTree = "<group>"; };
-		B70ABFC41E850E03005D5F57 /* RCDraggableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDraggableButton.m; sourceTree = "<group>"; };
 		B70ABFC91E850E3C005D5F57 /* OCAndSwift.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = OCAndSwift.entitlements; sourceTree = "<group>"; };
 		B70AC0181E850FF2005D5F57 /* UINavigationItem+Excursion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+Excursion.h"; sourceTree = "<group>"; };
 		B70AC0191E850FF2005D5F57 /* UINavigationItem+Excursion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Excursion.m"; sourceTree = "<group>"; };
@@ -362,16 +355,12 @@
 		B70AC0501E850FF2005D5F57 /* GPFeedBackTopicsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPFeedBackTopicsTableViewController.m; sourceTree = "<group>"; };
 		B70AC0511E850FF2005D5F57 /* GPFeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPFeedBackViewController.h; sourceTree = "<group>"; };
 		B70AC0521E850FF2005D5F57 /* GPFeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPFeedBackViewController.m; sourceTree = "<group>"; };
-		B70AC0541E850FF2005D5F57 /* ALActionSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALActionSheetView.h; sourceTree = "<group>"; };
-		B70AC0551E850FF2005D5F57 /* ALActionSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALActionSheetView.m; sourceTree = "<group>"; };
 		B70AC0571E850FF2005D5F57 /* CBHistoryCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBHistoryCollectionViewController.h; sourceTree = "<group>"; };
 		B70AC0581E850FF2005D5F57 /* CBHistoryCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBHistoryCollectionViewController.m; sourceTree = "<group>"; };
 		B70AC05A1E850FF2005D5F57 /* CBButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBButton.h; sourceTree = "<group>"; };
 		B70AC05B1E850FF2005D5F57 /* CBButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBButton.m; sourceTree = "<group>"; };
 		B70AC05C1E850FF2005D5F57 /* CBHistoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBHistoryCollectionViewCell.h; sourceTree = "<group>"; };
 		B70AC05D1E850FF2005D5F57 /* CBHistoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBHistoryCollectionViewCell.m; sourceTree = "<group>"; };
-		B70AC0991E85108A005D5F57 /* PooTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PooTextView.h; sourceTree = "<group>"; };
-		B70AC09A1E85108A005D5F57 /* PooTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PooTextView.m; sourceTree = "<group>"; };
 		B70DA3DA1E82342000C835AD /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = "Pods/../build/Debug-iphoneos/SnapKit/SnapKit.framework"; sourceTree = "<group>"; };
 		B71A713E1E723F70005C1F68 /* Masonry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Masonry.framework; path = "../Library/Developer/Xcode/DerivedData/Archery_Score-dbtpthzvhlhtllafumcqaqputgtb/Build/Products/Debug-iphoneos/Masonry/Masonry.framework"; sourceTree = "<group>"; };
 		B7C5CAFF1E84E988009F5AC9 /* OCAndSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCAndSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -774,14 +763,12 @@
 		B70AC01C1E850FF2005D5F57 /* PublicTools */ = {
 			isa = PBXGroup;
 			children = (
-				B70AC0981E85108A005D5F57 /* 输入法改造 */,
 				B70AC01D1E850FF2005D5F57 /* IGAlertView */,
 				B70AC0201E850FF2005D5F57 /* PTools.framework */,
 				B70AC0211E850FF2005D5F57 /* ShareSDK */,
 				B70AC0481E850FF2005D5F57 /* YXCustomAlertView */,
 				B70AC04B1E850FF2005D5F57 /* 图片类 */,
 				B70AC04E1E850FF2005D5F57 /* 意见反馈界面 */,
-				B70AC0531E850FF2005D5F57 /* 高仿微信ActionSheet */,
 			);
 			path = PublicTools;
 			sourceTree = "<group>";
@@ -918,15 +905,6 @@
 			path = "意见反馈界面";
 			sourceTree = "<group>";
 		};
-		B70AC0531E850FF2005D5F57 /* 高仿微信ActionSheet */ = {
-			isa = PBXGroup;
-			children = (
-				B70AC0541E850FF2005D5F57 /* ALActionSheetView.h */,
-				B70AC0551E850FF2005D5F57 /* ALActionSheetView.m */,
-			);
-			path = "高仿微信ActionSheet";
-			sourceTree = "<group>";
-		};
 		B70AC0561E850FF2005D5F57 /* PublicViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -947,23 +925,12 @@
 			path = PublicViews;
 			sourceTree = "<group>";
 		};
-		B70AC0981E85108A005D5F57 /* 输入法改造 */ = {
-			isa = PBXGroup;
-			children = (
-				B70AC0991E85108A005D5F57 /* PooTextView.h */,
-				B70AC09A1E85108A005D5F57 /* PooTextView.m */,
-			);
-			path = "输入法改造";
-			sourceTree = "<group>";
-		};
 		B7C5CB001E84E988009F5AC9 /* OCAndSwift */ = {
 			isa = PBXGroup;
 			children = (
 				B70ABFC91E850E3C005D5F57 /* OCAndSwift.entitlements */,
 				B70ABFC11E850E03005D5F57 /* HealthKitManager.h */,
 				B70ABFC21E850E03005D5F57 /* HealthKitManager.m */,
-				B70ABFC31E850E03005D5F57 /* RCDraggableButton.h */,
-				B70ABFC41E850E03005D5F57 /* RCDraggableButton.m */,
 				B7C5CB761E84F674009F5AC9 /* SwiftClass */,
 				B7C5CB261E84EFC4009F5AC9 /* OC-Base */,
 				B7C5CB041E84E988009F5AC9 /* AppDelegate.h */,
@@ -1479,13 +1446,11 @@
 				B70AC05E1E850FF2005D5F57 /* UINavigationItem+Excursion.m in Sources */,
 				505412841E532DE200D951D6 /* LBaseViewController.m in Sources */,
 				5011B41F1E54F04300C49365 /* PCalculatorViewController.m in Sources */,
-				B70AC0901E850FF2005D5F57 /* ALActionSheetView.m in Sources */,
 				505412671E53261C00D951D6 /* AppDelegate.m in Sources */,
 				B70AC08A1E850FF2005D5F57 /* YMShowImageView.m in Sources */,
 				B70AC08E1E850FF2005D5F57 /* GPFeedBackViewController.m in Sources */,
 				B70AC0881E850FF2005D5F57 /* YXCustomAlertView.m in Sources */,
 				B70AC0921E850FF2005D5F57 /* CBHistoryCollectionViewController.m in Sources */,
-				B70AC09B1E85108A005D5F57 /* PooTextView.m in Sources */,
 				B70AC0601E850FF2005D5F57 /* UIView+Category.m in Sources */,
 				B70AC0941E850FF2005D5F57 /* CBButton.m in Sources */,
 				B70AC08C1E850FF2005D5F57 /* GPFeedBackTopicsTableViewController.m in Sources */,
@@ -1515,8 +1480,6 @@
 				B70AC0951E850FF2005D5F57 /* CBButton.m in Sources */,
 				B7C5CB061E84E988009F5AC9 /* AppDelegate.m in Sources */,
 				B70AC08F1E850FF2005D5F57 /* GPFeedBackViewController.m in Sources */,
-				B70AC09C1E85108A005D5F57 /* PooTextView.m in Sources */,
-				B70AC0911E850FF2005D5F57 /* ALActionSheetView.m in Sources */,
 				B70AC08D1E850FF2005D5F57 /* GPFeedBackTopicsTableViewController.m in Sources */,
 				B70AC0891E850FF2005D5F57 /* YXCustomAlertView.m in Sources */,
 				B7C5CB031E84E988009F5AC9 /* main.m in Sources */,
@@ -1528,7 +1491,6 @@
 				B7C5CB4A1E84EFC4009F5AC9 /* BaseTableViewController.m in Sources */,
 				B70AC05F1E850FF2005D5F57 /* UINavigationItem+Excursion.m in Sources */,
 				B70AC0971E850FF2005D5F57 /* CBHistoryCollectionViewCell.m in Sources */,
-				B70ABFC61E850E03005D5F57 /* RCDraggableButton.m in Sources */,
 				CC78E4FC1E856C8500580676 /* PSaveTools.m in Sources */,
 				B7C5CB821E84F674009F5AC9 /* HomePageViewController.swift in Sources */,
 				B7C5CB471E84EFC4009F5AC9 /* BaseCollectionViewController.m in Sources */,
@@ -2154,6 +2116,7 @@
 				B7DD1CC61E8B773F007AC058 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CC2C84231E8AA41E005CAB96 /* Build configuration list for PBXNativeTarget "TargetInfo Extension" */ = {
 			isa = XCConfigurationList;

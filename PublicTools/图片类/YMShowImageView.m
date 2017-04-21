@@ -11,7 +11,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 
 #import "IGAlertView.h"
-#import "ALActionSheetView.h"
+#import <PTools/ALActionSheetView.h>
 
 
 @implementation YMShowImageView

@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+static NSString *LANGUAGEENGLISH = @"LANGUAGEENGLISH";
+static NSString *LANGUAGEANDCHINESE = @"LANGUAGEANDCHINESE";
+static NSString *LANGUAGECHINESE = @"LANGUAGECHINESE";
 @interface Utils : NSObject
 
 +(UIImageView *)imageViewWithFrame:(CGRect)frame withImage:(UIImage *)image;
@@ -22,6 +25,14 @@
 +(UIAlertView *)alertTitle:(NSString *)title message:(NSString *)msg delegate:(id)aDeleagte cancelBtn:(NSString *)cancelName otherBtnName:(NSString *)otherbuttonName;
 +(UIAlertView *)alertShowWithMessage:(NSString *)messgae;
 
-+(void)timmerRunWithTime:(int)time button:(UIButton *)btn;
++(void)timmerRunWithTime:(int)time button:(UIButton *)btn originalStr:(NSString *)str;
 +(NSString *)formateTime:(NSDate*)date;
+
++(NSString *)getCurrentApplicationLocale;
++(NSString *)getCurrentDeviceLanguageInIOS;
++(NSMutableDictionary *)getCurrentDeviceLanguageInIOSWithDic;
+
++(UIImage*)createImageWithColor:(UIColor*)color;
+
++(void)changeAPPIcon:(NSString *)IconName;//此方法必须在info.plist中添加Icon files (iOS 5)字段，k&vCFBundleAlternateIcons ={IconName={CFBundleIconFiles =(IconName);UIPrerenderedIcon = 0;};};CFBundlePrimaryIcon={CFBundleIconFiles=(AppIcon20x20,AppIcon29x29,AppIcon40x40,AppIcon60x60);};
 @end

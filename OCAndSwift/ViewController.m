@@ -11,12 +11,12 @@
 #import "CBHistoryCollectionViewController.h"
 #import "PAboutMeViewController.h"
 #import <WatchConnectivity/WatchConnectivity.h>
+#import <PTools/PHealthKit.h>
 
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource,WCSessionDelegate>
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource,WCSessionDelegate,PHealthKitDelegate>
 {
     UITableView *tbView;
-    HealthKitManager *healthStore;
-    double stepCount;
+    PHealthKit *healthStore;
     UILabel *healthLabel;
     UIActivityIndicatorView *flower;
 }
@@ -45,27 +45,28 @@
     [[AppDelegate appDelegate].avatar addSubview:healthLabel];
     healthLabel.hidden = YES;
     
-    healthStore = [HealthKitManager shareInstance];
-    if ([HKHealthStore isHealthDataAvailable]) {
-        NSSet *readDataTypes = [self dataTypesToRead];
-        
-        if (!healthStore.healthStore) {
-            healthStore.healthStore = [HKHealthStore new];
-        }
-        
-        [healthStore.healthStore requestAuthorizationToShareTypes:nil readTypes:readDataTypes completion:^(BOOL success, NSError *error) {
-            if (!success) {
-                NSLog(@"You didn't allow HealthKit to access these read data types. In your app, try to handle this error gracefully when a user decides not to provide access. The error was: %@. If you're using a simulator, try it on a device.", error);
-                return;
-            }
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSLog(@"The user allow the app to read information about StepCount");
-            });
-        }];
-    }
-    
-    [self stepAllCount];
+    healthStore = [PHealthKit shareInstance];
+    healthStore.delegate = self;
+//    if ([HKHealthStore isHealthDataAvailable]) {
+//        NSSet *readDataTypes = [self dataTypesToRead];
+//        
+//        if (!healthStore.healthStore) {
+//            healthStore.healthStore = [HKHealthStore new];
+//        }
+//        
+//        [healthStore.healthStore requestAuthorizationToShareTypes:nil readTypes:readDataTypes completion:^(BOOL success, NSError *error) {
+//            if (!success) {
+//                NSLog(@"You didn't allow HealthKit to access these read data types. In your app, try to handle this error gracefully when a user decides not to provide access. The error was: %@. If you're using a simulator, try it on a device.", error);
+//                return;
+//            }
+//            
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                NSLog(@"The user allow the app to read information about StepCount");
+//            });
+//        }];
+//    }
+//    
+//    [self stepAllCount];
 
 }
 
@@ -87,7 +88,7 @@
     tbView.separatorStyle                 = UITableViewCellSeparatorStyleSingleLine;
     [self.view addSubview:tbView];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stepAllCount) name:UIApplicationWillResignActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stepAllCounts) name:UIApplicationWillResignActiveNotification object:nil];
 }
 
 #pragma mark ---------------> UITableViewDataSource
@@ -187,81 +188,33 @@ static NSString *cellIdentifier = @"CELLS";
     }
 }
 
-- (NSSet *)dataTypesToRead {
-    HKQuantityType *stepType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
-    return [NSSet setWithObjects:stepType, nil];
+#pragma mark ---------------> PHealthKit
+-(void)kitDataIsload:(BOOL)isload stepStr:(NSString *)stepStr
+{
+    healthLabel.hidden = NO;
+    healthLabel.text = [NSString stringWithFormat:@"你当前走了%@步",stepStr];
+    [flower stopAnimating];
+    [flower setHidesWhenStopped:YES];
+    
+    WCSession *session = [WCSession defaultSession];
+    
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"group.com.omcn.Archery"],@"group.com.omcn.Archery", nil];
+    
+    NSUserDefaults* userDefault = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.omcn.Archery"];
+    [userDefault setObject:[[NSUserDefaults standardUserDefaults] objectForKey:@"group.com.omcn.Archery"] forKey:@"group.com.omcn.Archery"];
+    
+    
+    [session sendMessage:dic replyHandler:^(NSDictionary<NSString *,id> * _Nonnull replyMessage) {
+        NSLog(@"replay: %@", replyMessage);
+        
+    } errorHandler:^(NSError * _Nonnull error) {
+        NSLog(@"Error: %@", error);
+    }];
+
 }
 
--(void)stepAllCount
+-(void)stepAllCounts
 {
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *interval = [[NSDateComponents alloc] init];
-    interval.day = 1;
-    
-    stepCount = 0;
-    NSDateComponents *anchorComponents = [calendar components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear
-                                                     fromDate:[NSDate date]];
-    anchorComponents.hour = 0;
-    NSDate *anchorDate = [calendar dateFromComponents:anchorComponents];
-    HKQuantityType *quantityType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
-    
-    HKStatisticsCollectionQuery *query =
-    [[HKStatisticsCollectionQuery alloc] initWithQuantityType:quantityType
-                                      quantitySamplePredicate:nil
-                                                      options:HKStatisticsOptionCumulativeSum
-                                                   anchorDate:anchorDate
-                                           intervalComponents:interval];
-    
-    query.initialResultsHandler = ^(HKStatisticsCollectionQuery *query, HKStatisticsCollection *results, NSError *error) {
-        if (error) {
-            NSLog(@"*** An error occurred while calculating the statistics: %@ ***",error.localizedDescription);
-        }
-        
-        NSCalendar *cal = [NSCalendar currentCalendar];
-        NSDateComponents *components = [cal components:( NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond ) fromDate:[[NSDate alloc] init]];
-        
-        [components setHour:-[components hour]];
-        [components setMinute:-[components minute]];
-        [components setSecond:-[components second]];
-        NSDate *today = [cal dateByAddingComponents:components toDate:[[NSDate alloc] init] options:NSCalendarMatchLast];
-        
-        NSDateComponents *component = [cal components:( NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond ) fromDate:[[NSDate alloc] init]];
-        
-        [component setHour:23];
-        [component setMinute:59];
-        [component setSecond:59];
-        NSDate *todayEnd = [cal dateByAddingComponents:component toDate: today options:0];
-        
-        [results enumerateStatisticsFromDate:today toDate:todayEnd withBlock:^(HKStatistics *result, BOOL *stop) {
-            HKQuantity *quantity = result.sumQuantity;
-            
-            if (quantity) {
-                double value = [quantity doubleValueForUnit:[HKUnit countUnit]];
-                stepCount = stepCount + value;
-            }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                healthLabel.hidden = NO;
-                healthLabel.text = [NSString stringWithFormat:@"你当前走了%@步",[NSNumberFormatter localizedStringFromNumber:@(stepCount) numberStyle:NSNumberFormatterNoStyle]];
-                [flower stopAnimating];
-                [flower setHidesWhenStopped:YES];
-                
-                WCSession *session = [WCSession defaultSession];
-                
-                NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"group.com.omcn.Archery"],@"group.com.omcn.Archery", nil];
-                
-                NSUserDefaults* userDefault = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.omcn.Archery"];
-                [userDefault setObject:[[NSUserDefaults standardUserDefaults] objectForKey:@"group.com.omcn.Archery"] forKey:@"group.com.omcn.Archery"];
-                
-
-                [session sendMessage:dic replyHandler:^(NSDictionary<NSString *,id> * _Nonnull replyMessage) {
-                    NSLog(@"replay: %@", replyMessage);
-                    
-                } errorHandler:^(NSError * _Nonnull error) {
-                    NSLog(@"Error: %@", error);
-                }];
-            });
-        }];
-    };
-    [healthStore.healthStore executeQuery:query];
+    [healthStore stepAllCount];
 }
 @end

@@ -86,7 +86,7 @@
 
 -(void)initButton
 {
-    _avatar = [[RCDraggableButton alloc] initInKeyWindowWithFrame:CGRectMake(0, 333.5, 160, 30)];
+    _avatar = [[RCDraggableButton alloc] initInView:[AppDelegate appDelegate].window WithFrame:CGRectMake(0, 333.5, 160, 30)];
     [_avatar setTag:100];
     _avatar.backgroundColor = [UIColor redColor];
     _avatar.adjustsImageWhenHighlighted = NO;
@@ -113,11 +113,11 @@
         
     }];
     
-    [_avatar setDragDoneBlock:^(RCDraggableButton *avatar) {
-        NSLog(@"\n\tAvatar in keyWindow === DragDone!!! ===");
-        //More todo here.
-        
-    }];
+//    [_avatar setDragDoneBlock:^(RCDraggableButton *avatar) {
+//        NSLog(@"\n\tAvatar in keyWindow === DragDone!!! ===");
+//        //More todo here.
+//        
+//    }];
     
     [_avatar setAutoDockingBlock:^(RCDraggableButton *avatar) {
         NSLog(@"\n\tAvatar in keyWindow === AutoDocking!!! ===");
@@ -125,11 +125,11 @@
         
     }];
     
-    [_avatar setAutoDockingDoneBlock:^(RCDraggableButton *avatar) {
-        NSLog(@"\n\tAvatar in keyWindow === AutoDockingDone!!! ===");
-        //More todo here.
-        
-    }];
+//    [_avatar setAutoDockingDoneBlock:^(RCDraggableButton *avatar) {
+//        NSLog(@"\n\tAvatar in keyWindow === AutoDockingDone!!! ===");
+//        //More todo here.
+//        
+//    }];
 }
 
 -(void)createInitData

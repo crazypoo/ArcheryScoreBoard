@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
-#import "PooTextView.h"
+#import <PTools/PooTextView.h>
 
 @interface GPFeedBackViewController :UITableViewController <UITextViewDelegate, MFMailComposeViewControllerDelegate>
 {
