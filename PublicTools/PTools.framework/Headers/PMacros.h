@@ -44,11 +44,31 @@
 #define SCREEN_SCALE ([UIScreen mainScreen].scale)
 #define KEYWINDOW [UIApplication sharedApplication].keyWindow
 
+//STATUSBAR
+// 加载
+#define kShowNetworkActivityIndicator() [UIApplication sharedApplication].networkActivityIndicatorVisible = YES
+// 收起加载
+#define HideNetworkActivityIndicator()      [UIApplication sharedApplication].networkActivityIndicatorVisible = NO
+// 设置加载
+#define NetworkActivityIndicatorVisible(x)  [UIApplication sharedApplication].networkActivityIndicatorVisible = x
+
 //获取view的frame
 #define kGetViewWidth(view)  view.frame.size.width
 #define kGetViewHeight(view) view.frame.size.height
 #define kGetViewX(view)      view.frame.origin.x
 #define kGetViewY(view)      view.frame.origin.y
+//获取垂直居中的x（父的高度/2-子的高度/2）
+#define CENTER_VERTICALLY(parent,child) floor((parent.frame.size.height - child.frame.size.height) / 2)
+//获取水平居中的y（父的宽度/2-子的宽度/2）
+#define CENTER_HORIZONTALLY(parent,child) floor((parent.frame.size.width - child.frame.size.width) / 2)
+// example: [[UIView alloc] initWithFrame:(CGRect){CENTER_IN_PARENT(parentView,500,500),CGSizeMake(500,500)}];
+#define CENTER_IN_PARENT(parent,childWidth,childHeight) CGPointMake(floor((parent.frame.size.width - childWidth) / 2),floor((parent.frame.size.height - childHeight) / 2))
+#define CENTER_IN_PARENT_X(parent,childWidth) floor((parent.frame.size.width - childWidth) / 2)
+#define CENTER_IN_PARENT_Y(parent,childHeight) floor((parent.frame.size.height - childHeight) / 2)
+//view的bottom的y
+#define BOTTOM(view) (view.frame.origin.y + view.frame.size.height)
+//view的right的x
+#define RIGHT(view) (view.frame.origin.x + view.frame.size.width)
 
 #define HEIGHT_NAV 44.0
 #define HEIGHT_STATUS 20.0
@@ -57,6 +77,9 @@
 
 #define SCREEN_POINT (float)SCREEN_WIDTH/320.f
 #define SCREEN_H_POINT (float)SCREEN_HEIGHT/480.f
+
+//设置View的tag属性
+#define VIEWWITHTAG(_OBJECT, _TAG) [_OBJECT viewWithTag : _TAG]
 
 //R屏
 #define isRetina ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
@@ -210,14 +233,14 @@ __CELL__ = [[__CELLCLASS__ alloc]initWithStyle:UITableViewCellStyleDefault reuse
 
 #pragma mark ---------------> GCD
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#define GCDWithGlobal(block) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)
+#define GCDWithGlobal(block) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{block})
 #define GCDWithMain(block) dispatch_async(dispatch_get_main_queue(),block)
 //GCD - 一次性执行
 #define kDISPATCH_ONCE_BLOCK(onceBlock) static dispatch_once_t onceToken; dispatch_once(&onceToken, onceBlock);
 //GCD - 在Main线程上运行
 #define kDISPATCH_MAIN_THREAD(mainQueueBlock) dispatch_async(dispatch_get_main_queue(), mainQueueBlock);
 //GCD - 开启异步线程
-#define kDISPATCH_GLOBAL_QUEUE_DEFAULT(globalQueueBlock) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), globalQueueBlocl);
+#define kDISPATCH_GLOBAL_QUEUE_DEFAULT(globalQueueBlock) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), globalQueueBlock);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #pragma mark ---------------> NSUserDefaults 实例化

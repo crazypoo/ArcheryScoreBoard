@@ -13,7 +13,7 @@
 @end
 
 @interface PMotion : NSObject
-+ (instancetype)defaultMonitor;
--(void)getMotion;
 @property (nonatomic, weak) id<PMotionDelegate>delegate;
++(instancetype)defaultMonitor;
+-(void)getMotion;
 @end

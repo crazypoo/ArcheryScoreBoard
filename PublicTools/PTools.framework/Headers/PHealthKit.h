@@ -15,7 +15,9 @@
 
 @interface PHealthKit : NSObject
 @property (nonatomic ,strong) HKHealthStore *healthStore;
-+ (instancetype)shareInstance;
--(void)stepAllCount;
 @property (nonatomic, weak) id<PHealthKitDelegate>delegate;
+//初始化
++(instancetype)shareInstance;
+//HealthKit步数
+-(void)stepAllCount;
 @end

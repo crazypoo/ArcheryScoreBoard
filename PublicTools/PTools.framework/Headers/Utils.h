@@ -25,7 +25,7 @@ static NSString *LANGUAGECHINESE = @"LANGUAGECHINESE";
 +(UIAlertView *)alertTitle:(NSString *)title message:(NSString *)msg delegate:(id)aDeleagte cancelBtn:(NSString *)cancelName otherBtnName:(NSString *)otherbuttonName;
 +(UIAlertView *)alertShowWithMessage:(NSString *)messgae;
 
-+(void)timmerRunWithTime:(int)time button:(UIButton *)btn originalStr:(NSString *)str;
++(void)timmerRunWithTime:(int)time button:(UIButton *)btn originalStr:(NSString *)str setTapEnable:(BOOL)yesOrNo;
 +(NSString *)formateTime:(NSDate*)date;
 
 +(NSString *)getCurrentApplicationLocale;

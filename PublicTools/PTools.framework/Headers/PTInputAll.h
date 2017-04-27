@@ -49,6 +49,7 @@
 #import "PooPhoneBlock.h"//打电话
 #import "PooSystemInfo.h"//系统信息
 #import "PooUDIDInfo.h"//自定义UDID
+#import "PTouchID.h"//TouchID
 #import "Utils.h"//通用工具
 
 //加载
@@ -57,6 +58,7 @@
 
 //View
 #import "JMHoledView.h"//遮罩教程
+#import "PGifHud.h"//GIFHUD
 #import "PLaunchAdMonitor.h"//启动广告
 #import "PooTagsLabel.h"//标签
 #import "PooSegView.h"//SegView
