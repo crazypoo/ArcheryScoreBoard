@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>MOBAppSecret</key>
-	<string>94c7edc68537b9d30c5cc4f50cd3c044</string>
-	<key>MOBAPPKey</key>
-	<string>1bb1693e4c933</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -21,11 +17,15 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.2</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.2</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MOBAPPKey</key>
+	<string>1bb1693e4c933</string>
+	<key>MOBAppSecret</key>
+	<string>94c7edc68537b9d30c5cc4f50cd3c044</string>
 	<key>NSCameraUsageDescription</key>
 	<string>是否允许使用相机</string>
 	<key>NSPhotoLibraryUsageDescription</key>
