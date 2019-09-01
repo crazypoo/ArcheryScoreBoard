@@ -68,7 +68,7 @@ class TargetViewController: BaseViewController, UIImagePickerControllerDelegate,
     var SendButton:UIButton!
     var cameraBtn: UIButton!
     
-    func setArrowPosition(_ sender: UIPanGestureRecognizer) {
+    @objc func setArrowPosition(_ sender: UIPanGestureRecognizer) {
         
         if arrowId < nbrsArrow {
             let location = sender.location(in: TargetView)
@@ -96,7 +96,7 @@ class TargetViewController: BaseViewController, UIImagePickerControllerDelegate,
         return accumulator + current
     }
     
-    func ButtonAction(_ sender: UIButton) {
+    @objc func ButtonAction(_ sender: UIButton) {
         
         if sender.titleLabel?.text == "更正" {
             arrowTab[arrowId-1].shots.removeLast()
@@ -337,19 +337,6 @@ class TargetViewController: BaseViewController, UIImagePickerControllerDelegate,
             print("\(i)")
         }
         
-        let titleLabel = UILabel.init()
-        titleLabel.textAlignment = .center
-        titleLabel.font = UIFont.systemFont(ofSize: 20)
-        titleLabel.textColor = .blue
-        titleLabel.text = shooterName
-        self.view.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(20)
-            make.centerX.equalTo(self.view)
-            make.width.equalTo(200)
-            make.height.equalTo(24)
-        }
-        
 //        backBtn = UIButton.init(type: .custom)
 //        backBtn.setTitleColor(UIColor.blue, for: .normal)
 //        backBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
@@ -367,10 +354,9 @@ class TargetViewController: BaseViewController, UIImagePickerControllerDelegate,
         TargetView.image = UIImage.init(named: "TargetImage")
         self.view.addSubview(TargetView)
         TargetView.snp.makeConstraints { (make) in
-            make.top.equalTo(70)
+            make.top.centerX.equalTo(self.view)
             make.left.equalTo(20)
-            make.width.equalTo(self.view.frame.size.width-40)
-            make.height.equalTo(self.view.frame.size.width-40)
+            make.width.height.equalTo(self.view.frame.size.width-40)
         }
         
         let bowLabel = UILabel.init()
@@ -649,7 +635,7 @@ class TargetViewController: BaseViewController, UIImagePickerControllerDelegate,
     
     var image = UIImage()
     
-    func takePhoto() {
+    @objc func takePhoto() {
         
         let count:Int = UserDefaults.standard.object(forKey: "ALLCOUNT") as! Int
         UserDefaults.standard.set(count + nbrsArrow, forKey: "ALLCOUNT")
@@ -661,7 +647,7 @@ class TargetViewController: BaseViewController, UIImagePickerControllerDelegate,
         backBtn.isHidden = true
         let saveimage = self.view.screenshot()
         let libary = ALAssetsLibrary.init()
-        let data = UIImagePNGRepresentation(saveimage!)
+        let data = saveimage!.pngData()
         libary.writeImageData(toSavedPhotosAlbum: data, metadata: nil) { (url, error) in
             self.CorrectButton.isHidden = false
             self.SendButton.isHidden = false

@@ -9,7 +9,6 @@
 import UIKit
 import SnapKit
 import SJFluidSegmentedControl
-//import HealthKit
 
 class HomePageViewController: BaseViewController,SJFluidSegmentedControlDelegate,SJFluidSegmentedControlDataSource{
 
@@ -24,11 +23,6 @@ class HomePageViewController: BaseViewController,SJFluidSegmentedControlDelegate
     var bowStr:String!
     var distanceStr:String!
     var targetStr:String!
-
-//    let healthKitManager = HealthKitManager.sharedInstance
-//    var steps = [HKQuantitySample]()
-//    var stepLabel:UILabel!
-//    var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         
@@ -190,52 +184,11 @@ class HomePageViewController: BaseViewController,SJFluidSegmentedControlDelegate
         bowStr = "反曲"
         distanceStr = "10"
         targetStr = "122全"
-//        requestHealthKitAuthorization()
-
-//        let floatingButton = PFloatingButton()
-//        floatingButton.initInKeyWindowWithFrame(frame: CGRect.init(x: 0, y: 100, width: 150, height: 30))
-//        floatingButton.backgroundColor = UIColor.red
-//        AppDelegate.appDelegate().window?.addSubview(floatingButton)
-//        
-//        floatingButton.longPressBlock = {(button: PFloatingButton!) -> Void in
-//            NSLog("long")
-//        }
-//        floatingButton.doubleTapBlock = {(button: PFloatingButton!) -> Void in
-//            NSLog("double")
-//        }
-//        floatingButton.setTapBlocks {(button: PFloatingButton!) -> Void in
-//            NSLog("tap")
-//        }
-//        floatingButton.draggingBlock =  {(button: PFloatingButton!) -> Void in
-//            NSLog("dragging")
-//        }
-//        floatingButton.dragDoneBlock =  {(button: PFloatingButton!) -> Void in
-//            NSLog("dragDoneBlock")
-//        }
-//        floatingButton.autoDockingBlock =  {(button: PFloatingButton!) -> Void in
-//            NSLog("autoDockingBlock")
-//        }
-//        floatingButton.autoDockingDoneBlock =  {(button: PFloatingButton!) -> Void in
-//            NSLog("autoDockingDoneBlock")
-//        }
-//        
-//        activityIndicator = UIActivityIndicatorView.init(activityIndicatorStyle: .white)
-//        floatingButton.addSubview(activityIndicator)
-//        activityIndicator.snp.makeConstraints { (make) in
-//            make.centerX.centerY.equalTo(floatingButton)
-//        }
-//        activityIndicator.startAnimating()
-//        
-//        stepLabel = UILabel.init(frame: floatingButton.bounds)
-//        stepLabel.backgroundColor = .clear
-//        stepLabel.textColor = UIColor.lightGray
-//        stepLabel.textAlignment = .center
-//        floatingButton.addSubview(stepLabel)
-//        stepLabel.isHidden = true
+        
     }
     
 //按钮动作
-    func nextAction(sender:UIButton) {
+    @objc func nextAction(sender:UIButton) {
         let targetVC:TargetViewController = TargetViewController()
         targetVC.title = nameText.text
         targetVC.nbrsArrow = nbrsArrow
@@ -254,7 +207,7 @@ class HomePageViewController: BaseViewController,SJFluidSegmentedControlDelegate
         }
     }
     
-    func stepperAction(_ sender: UIStepper) {
+    @objc func stepperAction(_ sender: UIStepper) {
         nbrsArrow = Int(sender.value)
     }
     
@@ -319,50 +272,3 @@ class HomePageViewController: BaseViewController,SJFluidSegmentedControlDelegate
     }
     
 }
-
-////ViewController扩展
-//private extension HomePageViewController {
-//    
-//    func requestHealthKitAuthorization() {
-//        let dataTypesToRead = NSSet(objects: healthKitManager.stepsCount as Any)
-//        healthKitManager.healthStore?.requestAuthorization(toShare: nil, read: dataTypesToRead as? Set<HKObjectType>, completion: { [unowned self] (success, error) in
-//            if success {
-//                self.queryStepsSum()
-//                self.querySteps()
-//            } else {
-//                print(error.debugDescription)
-//            }
-//        })
-//    }
-//    
-//    func queryStepsSum() {
-//        let sumOption = HKStatisticsOptions.cumulativeSum
-//        let statisticsSumQuery = HKStatisticsQuery(quantityType: healthKitManager.stepsCount!, quantitySamplePredicate: nil, options: sumOption) { [unowned self] (query, result, error) in
-//            if let sumQuantity = result?.sumQuantity() {                
-//                let numberOfSteps = Int(sumQuantity.doubleValue(for: self.healthKitManager.stepsUnit))
-//                print("\(numberOfSteps) total")
-//                self.activityIndicator.stopAnimating()
-//                self.stepLabel.isHidden = false
-//                self.stepLabel.text = "总步数" + String(numberOfSteps)
-//            }
-//        }
-//        healthKitManager.healthStore?.execute(statisticsSumQuery)
-//    }
-//    
-//    func querySteps() {
-//        let sampleQuery = HKSampleQuery(sampleType: healthKitManager.stepsCount!,
-//                                        predicate: nil,
-//                                        limit: 100,
-//                                        sortDescriptors: nil)
-//        { [unowned self] (query, results, error) in
-//            if let results = results as? [HKQuantitySample] {
-//                self.steps = results
-////                print("\(self.steps) today")
-//            }
-//        }
-//        
-//        healthKitManager.healthStore?.execute(sampleQuery)
-//    }
-//
-//    
-//}

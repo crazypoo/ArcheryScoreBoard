@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Archery Score.xcodeproj">
+      location = "group:/Users/crazypoo/ST/ArcheryScoreBoard/OCAndSwift.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

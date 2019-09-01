@@ -1,0 +1,60 @@
+{
+  "name": "CGBase",
+  "version": "0.1.165",
+  "summary": "云门公共",
+  "homepage": "https://gitee.com/crazypoo/CGBase.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "crazypoo": "273277355@qq.com"
+  },
+  "source": {
+    "git": "https://gitee.com/crazypoo/CGBase.git",
+    "tag": "0.1.165"
+  },
+  "platforms": {
+    "ios": "9.3"
+  },
+  "swift_versions": [
+    "4.0",
+    "4.2",
+    "5.0"
+  ],
+  "source_files": [
+    "CGBase",
+    "CGBase/**/*.{h,m,swift}"
+  ],
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "4.0"
+  },
+  "requires_arc": true,
+  "dependencies": {
+    "PooTools": [
+
+    ],
+    "LSSafeProtector": [
+
+    ],
+    "OOMDetector": [
+
+    ],
+    "FLEX": [
+
+    ],
+    "XSpotLight": [
+
+    ],
+    "HXWeiboPhotoPicker": [
+
+    ],
+    "PrivacyPermission": [
+
+    ]
+  },
+  "resources": [
+    "CGBase/*.xcassets"
+  ],
+  "swift_version": "5.0"
+}

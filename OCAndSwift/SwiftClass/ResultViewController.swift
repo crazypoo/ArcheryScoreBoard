@@ -55,7 +55,7 @@ class ResultViewController: BaseViewController,UITableViewDataSource,UITableView
         
         self.title = "统计"
         
-        self.navigationItem.setRightBarButton(UIBarButtonItem.init(title: "更多操作", style: UIBarButtonItemStyle.done, target: self, action: #selector(self.goBack(_:))), animated: true)
+        self.navigationItem.setRightBarButton(UIBarButtonItem.init(title: "更多操作", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.goBack(_:))), animated: true)
         
         tbView = UITableView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height-64), style: .plain)
         tbView.delegate = self
@@ -123,9 +123,9 @@ class ResultViewController: BaseViewController,UITableViewDataSource,UITableView
         self.navigationController?.pushViewController(detailledVC, animated: true)
     }
     
-    func goBack(_ sender: Any)
+    @objc func goBack(_ sender: Any)
     {
-        let actionsheet = ALActionSheetView.init(title: "你要选择那样?", cancelButtonTitle: "取消", destructiveButtonTitle: nil, otherButtonTitles: ["保存当前界面截图到相册","返回主界面"]) { (aViews, buttonIndex) in
+        let actionsheet = ALActionSheetView.init(title: "你要选择那样?", titleMessage: nil, cancelButtonTitle: "取消", destructiveButtonTitle: nil, otherButtonTitles: ["保存当前界面截图到相册","返回主界面"], buttonFontName: "AppleSDGothicNeo-Regular", singleCellBackgroundColor: UIColor.blue, normalCellTitleColor: UIColor.blue, destructiveCellTitleColor: UIColor.blue, titleCellTitleColor: UIColor.blue, separatorColor: UIColor.blue, heightlightColor: UIColor.blue) { (aViews, buttonIndex) in
             if buttonIndex == 0
             {
                 PSaveTools.saveScroll(self.tbView)

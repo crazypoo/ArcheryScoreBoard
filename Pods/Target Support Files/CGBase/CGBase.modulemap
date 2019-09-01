@@ -1,0 +1,6 @@
+framework module CGBase {
+  umbrella header "CGBase-umbrella.h"
+
+  export *
+  module * { export * }
+}

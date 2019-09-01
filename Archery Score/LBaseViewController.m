@@ -32,7 +32,7 @@
             self.buttomView.alpha = 0.0;
             [self.buttomView.superview layoutIfNeeded];
         }
-        PWeakSelf(self);
+        kWeakSelf(self);
         [self.buttomView.layer removeAllAnimations];
         [UIView animateWithDuration:0.3 animations:^{
             [weakself.buttomView mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -48,7 +48,7 @@
 {
     [super viewDidDisappear:animated];
     navigationImageView.hidden = YES;
-    PWeakSelf(self)
+    kWeakSelf(self)
     if (self.buttomView) {
         [self.buttomView.layer removeAllAnimations];
         [UIView animateWithDuration:0.3 animations:^{
@@ -133,7 +133,7 @@
     if (viewcontrollers.count>1) {
         if ([viewcontrollers objectAtIndex:viewcontrollers.count-1] == self) {
             //push方式
-            ReturnsToTheUpperLayer
+            kReturnsToTheUpperLayer
         }
     }
     else

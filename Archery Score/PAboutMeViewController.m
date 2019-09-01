@@ -7,13 +7,12 @@
 //
 
 #import "PAboutMeViewController.h"
-#import "GPFeedBackViewController.h"
+#import <CGBase/GPFeedBackViewController.h>
 
 #import <iCarousel/iCarousel.h>
-#import "YMShowImageView.h"
-#import "YXCustomAlertView.h"
+#import <PooTools/YXCustomAlertView.h>
 
-@interface PAboutMeViewController ()<UITableViewDataSource,UITableViewDelegate,iCarouselDataSource, iCarouselDelegate,YXCustomAlertViewDelegate>
+@interface PAboutMeViewController ()<UITableViewDataSource,UITableViewDelegate,iCarouselDataSource, iCarouselDelegate>
 {
     UITableView *tbView;
 }
@@ -42,12 +41,15 @@
     self.title = [NSString stringWithFormat:@"关于%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]];
     self.view.backgroundColor = [UIColor whiteColor];
 
-    tbView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
+    tbView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     tbView.dataSource = self;
     tbView.delegate = self;
     tbView.showsHorizontalScrollIndicator = NO;
     tbView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:tbView];
+    [tbView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.bottom.equalTo(self.view);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,7 +80,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return SCREEN_HEIGHT - 334;
+    return kSCREEN_HEIGHT - 334;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -94,7 +96,7 @@
             [(UIView *)[cell.contentView.subviews lastObject] removeFromSuperview];
         }
     }
-    cell.textLabel.font = DEFAULT_FONT(FontName,18);
+    cell.textLabel.font = kDEFAULT_FONT(FontName,18);
     cell.textLabel.text = self.titleArr[indexPath.row];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -107,19 +109,19 @@
     UIView *headerView = [[UIView alloc] init];
     UILabel *version = [[UILabel alloc] init];
 
-    headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 230);
+    headerView.frame = CGRectMake(0, 0, kSCREEN_WIDTH, 230);
 
-    iCarousel *carousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
+    iCarousel *carousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, 0, kSCREEN_WIDTH, 200)];
     carousel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     carousel.type = iCarouselTypeCoverFlow;
     carousel.delegate = self;
     carousel.dataSource = self;
     [headerView addSubview:carousel];
 
-    version.frame = CGRectMake(0, carousel.y+carousel.height, SCREEN_WIDTH, 30);
+    version.frame = CGRectMake(0, carousel.y+carousel.height, kSCREEN_WIDTH, 30);
 
     version.textAlignment = NSTextAlignmentCenter;
-    version.font = DEFAULT_FONT(FontName,24);
+    version.font = kDEFAULT_FONT(FontName,24);
     version.textColor = [UIColor lightGrayColor];
     version.text = [NSString stringWithFormat:@"%@ %@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"],[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]];
     [headerView addSubview:version];
@@ -132,12 +134,12 @@
     UIView *footView = [[UIView alloc] init];
     UILabel *info = [[UILabel alloc] init];
     
-    footView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 334);
-    info.frame = CGRectMake(0, footView.height-20, SCREEN_WIDTH, 20);
+    footView.frame = CGRectMake(0, 0, kSCREEN_WIDTH, kSCREEN_HEIGHT - 334);
+    info.frame = CGRectMake(0, footView.height-20, kSCREEN_WIDTH, 20);
     
     info.textAlignment = NSTextAlignmentCenter;
     info.textColor = [UIColor lightGrayColor];
-    info.font = DEFAULT_FONT(FontName,12);
+    info.font = kDEFAULT_FONT(FontName,12);
     info.text = @"Copyright (c) 2017年 邓杰豪. All rights reserved.";
     [footView addSubview:info];
     
@@ -221,37 +223,28 @@
 
 -(void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
 {
-    CGFloat dilX = 25;
-    CGFloat dilH = SCREEN_HEIGHT-40;
-    YXCustomAlertView *alertV = [[YXCustomAlertView alloc] initAlertViewWithFrame:CGRectMake(dilX, 0, SCREEN_WIDTH-50, dilH) andSuperView:self.navigationController.view onlyOkButton:YES];
-    alertV.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
-    alertV.delegate = self;
-    alertV.titleStr = self.AboutMeTitle[index];
-    alertV.tag = 999;
-
-    CGFloat loginX = 20;
-    UIImageView *alertImage = [[UIImageView alloc] initWithFrame:CGRectMake(loginX, 35, alertV.width-40, alertV.height-85)];
-    alertImage.userInteractionEnabled = YES;
-    alertImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",self.AboutImage[index]]];
-    alertImage.contentMode = UIViewContentModeScaleAspectFit;
-    [alertV addSubview:alertImage];
-}
-
-#pragma mark - YXCustomAlertViewDelegate
--(void)customAlertView:(YXCustomAlertView *)customAlertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (customAlertView.tag == 999)
-    {
+    YXCustomAlertView *alertV = [[YXCustomAlertView alloc] initAlertViewWithSuperView:kAppDelegateWindow alertTitle:self.AboutMeTitle[index] withButtonAndTitleFont:kDEFAULT_FONT(FontName, 18) titleColor:kRandomColor bottomButtonTitleColor:@[kRandomColor] verLineColor:kRandomColor alertViewBackgroundColor:kRandomColor heightlightedColor:kRandomColor moreButtonTitleArray:@[@"确定",@"取消"] viewTag:0 viewAnimation:AlertAnimationTypeTop touchBackGround:YES setCustomView:^(YXCustomAlertView * _Nonnull alertView) {
+        
+    } clickAction:^(YXCustomAlertView * _Nonnull alertView, NSInteger buttonIndex) {
         if (buttonIndex==0)
         {
-            [customAlertView dissMiss];
-            customAlertView = nil;
+            [alertView dissMiss];
+            alertView = nil;
         }
         else
         {
-            [customAlertView dissMiss];
-            customAlertView = nil;
+            [alertView dissMiss];
+            alertView = nil;
         }
-    }
+
+    } didDismissBlock:^(YXCustomAlertView * _Nonnull alertView) {
+        
+    }];
+    [alertV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.offset(kSCREEN_WIDTH);
+        make.width.offset(kSCREEN_WIDTH-40);
+        make.centerX.centerY.equalTo(kAppDelegateWindow);
+    }];
 }
+
 @end

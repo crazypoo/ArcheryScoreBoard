@@ -7,17 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "HealthKitManager.h"
 #import "CBHistoryCollectionViewController.h"
 #import "PAboutMeViewController.h"
-#import <WatchConnectivity/WatchConnectivity.h>
-#import <PTools/PHealthKit.h>
 
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource,WCSessionDelegate,PHealthKitDelegate>
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *tbView;
-    PHealthKit *healthStore;
-    UILabel *healthLabel;
     UIActivityIndicatorView *flower;
 }
 @end
@@ -27,47 +22,11 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    if([WCSession isSupported]){
-        WCSession *session = [WCSession defaultSession];
-        session.delegate = self;
-        [session activateSession];
-    }
-    
+
     flower = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     flower.frame = [AppDelegate appDelegate].avatar.bounds;
     [[AppDelegate appDelegate].avatar addSubview:flower];
     
-    healthLabel = [[UILabel alloc] initWithFrame:[AppDelegate appDelegate].avatar.bounds];
-    healthLabel.backgroundColor = [UIColor clearColor];
-    healthLabel.textColor = [UIColor lightGrayColor];
-    healthLabel.textAlignment = NSTextAlignmentCenter;
-    [[AppDelegate appDelegate].avatar addSubview:healthLabel];
-    healthLabel.hidden = YES;
-    
-    healthStore = [PHealthKit shareInstance];
-    healthStore.delegate = self;
-//    if ([HKHealthStore isHealthDataAvailable]) {
-//        NSSet *readDataTypes = [self dataTypesToRead];
-//        
-//        if (!healthStore.healthStore) {
-//            healthStore.healthStore = [HKHealthStore new];
-//        }
-//        
-//        [healthStore.healthStore requestAuthorizationToShareTypes:nil readTypes:readDataTypes completion:^(BOOL success, NSError *error) {
-//            if (!success) {
-//                NSLog(@"You didn't allow HealthKit to access these read data types. In your app, try to handle this error gracefully when a user decides not to provide access. The error was: %@. If you're using a simulator, try it on a device.", error);
-//                return;
-//            }
-//            
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                NSLog(@"The user allow the app to read information about StepCount");
-//            });
-//        }];
-//    }
-//    
-//    [self stepAllCount];
-
 }
 
 -(NSArray *)titleArray
@@ -80,15 +39,16 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.title = @"主界面";
     
-    tbView    = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
+    tbView    = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     tbView.dataSource                     = self;
     tbView.delegate                       = self;
     tbView.showsHorizontalScrollIndicator = NO;
     tbView.showsVerticalScrollIndicator   = NO;
     tbView.separatorStyle                 = UITableViewCellSeparatorStyleSingleLine;
     [self.view addSubview:tbView];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stepAllCounts) name:UIApplicationWillResignActiveNotification object:nil];
+    [tbView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.bottom.equalTo(self.view);
+    }];
 }
 
 #pragma mark ---------------> UITableViewDataSource
@@ -164,15 +124,11 @@ static NSString *cellIdentifier = @"CELLS";
             break;
         case 1:
         {
-            UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-            layout.itemSize                    = CGSizeMake((SCREEN_WIDTH-20)/2, SCREEN_WIDTH-20);
             
             CGFloat paddingY                   = 10;
             CGFloat paddingX                   = 5;
-            layout.sectionInset                = UIEdgeInsetsMake(paddingY, paddingX, paddingY, paddingX);
-            layout.minimumLineSpacing          = paddingY;
             
-            CBHistoryCollectionViewController *hV = [[CBHistoryCollectionViewController alloc] initWithCollectionViewLayout:layout];
+            CBHistoryCollectionViewController *hV = [[CBHistoryCollectionViewController alloc] initWithCollectionViewLayout:[CGLayout createLayoutItemW:(kSCREEN_WIDTH-20)/2 itemH:kSCREEN_WIDTH-20 sectionInset:UIEdgeInsetsMake(paddingY, paddingX, paddingY, paddingX) minimumLineSpacing:paddingX minimumInteritemSpacing:paddingX scrollDirection:UICollectionViewScrollDirectionVertical]];
             [self.navigationController pushViewController:hV animated:YES];
             
         }
@@ -188,33 +144,4 @@ static NSString *cellIdentifier = @"CELLS";
     }
 }
 
-#pragma mark ---------------> PHealthKit
--(void)kitDataIsload:(BOOL)isload stepStr:(NSString *)stepStr
-{
-    healthLabel.hidden = NO;
-    healthLabel.text = [NSString stringWithFormat:@"你当前走了%@步",stepStr];
-    [flower stopAnimating];
-    [flower setHidesWhenStopped:YES];
-    
-    WCSession *session = [WCSession defaultSession];
-    
-    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"group.com.omcn.Archery"],@"group.com.omcn.Archery", nil];
-    
-    NSUserDefaults* userDefault = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.omcn.Archery"];
-    [userDefault setObject:[[NSUserDefaults standardUserDefaults] objectForKey:@"group.com.omcn.Archery"] forKey:@"group.com.omcn.Archery"];
-    
-    
-    [session sendMessage:dic replyHandler:^(NSDictionary<NSString *,id> * _Nonnull replyMessage) {
-        NSLog(@"replay: %@", replyMessage);
-        
-    } errorHandler:^(NSError * _Nonnull error) {
-        NSLog(@"Error: %@", error);
-    }];
-
-}
-
--(void)stepAllCounts
-{
-    [healthStore stepAllCount];
-}
 @end

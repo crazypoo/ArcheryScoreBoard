@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CBHistoryCollectionViewController : UICollectionViewController
+#import <CGBase/BaseCollectionViewController.h>
+
+@interface CBHistoryCollectionViewController : BaseCollectionViewController
 
 @end

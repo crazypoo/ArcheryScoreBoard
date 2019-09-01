@@ -11,8 +11,8 @@
 #import "CBHistoryCollectionViewCell.h"
 #import "YMShowImageView.h"
 #import <ShareSDK/ShareSDK.h>
-#import <ShareSDKUI/ShareSDK+SSUI.h>
 #import <DZNemptyDataSet/UIScrollView+EmptyDataSet.h>
+#import <CGBase/PShareView.h>
 
 #define EmptyDataImage            @"1"
 #define EmptyDataWithTitleString  @"OPPS!!暂时没有数据"
@@ -52,7 +52,7 @@ static NSString * const reuseIdentifier = @"Cell";
     navTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
     navTitleLabel.textAlignment = NSTextAlignmentCenter;
     navTitleLabel.textColor = [UIColor blackColor];
-    navTitleLabel.font = DEFAULT_FONT(FontName, 24);
+    navTitleLabel.font = kDEFAULT_FONT(FontName, 24);
     navTitleLabel.text = @"历史记录";
     self.navigationItem.titleView = navTitleLabel;
  
@@ -86,7 +86,7 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark ------> 按钮
 -(void)backAct:(UIButton *)sender
 {
-    ReturnsToTheUpperLayer
+    kReturnsToTheUpperLayer
 }
 
 #pragma mark <UICollectionViewDataSource>
@@ -118,57 +118,50 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDelegate>
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    YMShowImageView *ymImageV = [[YMShowImageView alloc] initWithFrame:[UIScreen mainScreen].bounds byClick:indexPath.row+YMShowImageViewClickTagAppend appendArray:imageArray imageTitleArray:imageNameArray imageInfoArray:nil deleteAble:YES];
-
-    NSMutableArray *newPhotoArr = [[NSMutableArray alloc] init];
-    [newPhotoArr addObjectsFromArray:imageArray];
-
-    NSMutableArray *newPhotoNameArr = [[NSMutableArray alloc] init];
-    [newPhotoNameArr addObjectsFromArray:imageNameArray];
-
-    ymImageV.didDeleted = ^(YMShowImageView *siv,NSInteger index)
-    {
-        if (newPhotoArr && index < [newPhotoArr count]) {
-            [newPhotoArr removeObjectAtIndex:index];
-            [newPhotoNameArr removeObjectAtIndex:index];
-
-            NSString *plistPath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/History/%@",imageNameArray[index]]];
-            NSFileManager *fileManager = [NSFileManager defaultManager];
-            [fileManager removeItemAtPath:plistPath error:nil];
-
-
-            [imageArray removeAllObjects];
-            [imageNameArray removeAllObjects];
-
-            [self.collectionView reloadData];
-            for (UIImage *img in newPhotoArr) {
-                if ([img isKindOfClass:[UIImage class]]) {
-                    [imageArray addObject:img];
-                }
-            }
-            for (NSString *imgName in newPhotoNameArr) {
-                if ([imgName isKindOfClass:[NSString class]]) {
-                    [imageNameArray addObject:imgName];
-                }
-            }
-        }
-    };
+    NSMutableArray *imageModel = [NSMutableArray array];
+    
+    for (int i = 0; i < imageArray.count; i++) {
+        PooShowImageModel *model = [PooShowImageModel new];
+        model.imageShowType = PooShowImageModelTypeNormal;
+        model.imageInfo = imageNameArray[i];
+        model.imageUrl = imageArray[i];
+        
+        [imageModel addObject:model];
+    }
+    
+    YMShowImageView *ymImageV = [[YMShowImageView alloc] initWithByClick:indexPath.row+YMShowImageViewClickTagAppend appendArray:imageModel titleColor:kRandomColor fontName:FontName showImageBackgroundColor:kRandomColor showWindow:kAppDelegateWindow loadingImageName:@"" deleteAble:YES saveAble:NO moreActionImageName:@"" hideImageName:@""];
     [ymImageV showWithFinish:^{
         [self.collectionView reloadData];
+    }];
+    ymImageV.saveImageStatus = ^(BOOL saveStatus) {
+//        saveBlock(saveStatus);
+    };
+    ymImageV.otherBlock = ^(NSInteger index) {
+//        otherBlock(index);
+    };
+    ymImageV.didDeleted = ^(YMShowImageView *siv, NSInteger index) {
+        NSString *plistPath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/History/%@",imageNameArray[index]]];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        [fileManager removeItemAtPath:plistPath error:nil];
+        [imageArray removeObjectAtIndex:index];
+        [imageNameArray removeObjectAtIndex:index];
+    };
+    [ymImageV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.bottom.equalTo(kAppDelegateWindow);
     }];
 }
 
 #pragma mark ------> DZNEmptyDataSetDelegate&&DZNEmptyDataSetSource
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
 {
-    return ImageNamed(EmptyDataImage);
+    return kImageNamed(EmptyDataImage);
 }
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {
     NSString *text = EmptyDataWithTitleString;
     
-    NSDictionary *attributes = @{NSFontAttributeName: DEFAULT_FONT(FontName,18),
+    NSDictionary *attributes = @{NSFontAttributeName: kDEFAULT_FONT(FontName,18),
                                  NSForegroundColorAttributeName: [UIColor darkGrayColor]};
     
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
@@ -182,7 +175,7 @@ static NSString * const reuseIdentifier = @"Cell";
     paragraph.lineBreakMode = NSLineBreakByWordWrapping;
     paragraph.alignment = NSTextAlignmentCenter;
     
-    NSDictionary *attributes = @{NSFontAttributeName: DEFAULT_FONT(FontName,14),
+    NSDictionary *attributes = @{NSFontAttributeName: kDEFAULT_FONT(FontName,14),
                                  NSForegroundColorAttributeName: [UIColor lightGrayColor],
                                  NSParagraphStyleAttributeName: paragraph};
     
@@ -226,70 +219,87 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark ---------------> 按钮
 -(void)btnAct:(CBButton *)sender
 {
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"图片操作" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"分享给朋友", nil];
-    sheet.tag = sender.cellsTag.row;
-    [sheet showInView:self.view];
+    
+    ALActionSheetView *actionSheetView = [[ALActionSheetView alloc] initWithTitle:@"图片操作" titleMessage:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"分享给朋友"] buttonFontName:FontName singleCellBackgroundColor:kRandomColor normalCellTitleColor:kRandomColor destructiveCellTitleColor:kRandomColor titleCellTitleColor:kRandomColor separatorColor:kRandomColor heightlightColor:kRandomColor handler:^(ALActionSheetView *actionSheetView, NSInteger buttonIndex) {
+        if (buttonIndex == 0)
+        {
+            PShareView *share = [[PShareView alloc] initWithShareLink:nil withShareContent:@"来看看我这次的成绩🤣"
+                                                       withShareImage:(UIImage *)imageArray[sender.cellsTag.row] withShareTitle:@"ArcheryScoreBoard"
+                                                     handleShareBlock:^(NSString *shareContent, UIImage *shareImage, NSURL *shareURL, NSString *shareTitle, NSString *shareBtnTitle) {
+                [self wakeUpShareSDKWithButtonTitle:shareBtnTitle shareContent:shareContent shareImage:shareImage shareURL:shareURL shareTitle:shareTitle];
+
+            } handleCancelBlock:^{
+                
+            }];
+            [share shareViewShow];
+        }
+    }];
+    [actionSheetView show];
 }
 
-#pragma mark - action sheet delegte
--(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+
+-(void)wakeUpShareSDKWithButtonTitle:(NSString *)btnTitle shareContent:(NSString *)content shareImage:(UIImage *)image shareURL:(NSURL *)url shareTitle:(NSString *)title
 {
-    if (buttonIndex == 0)
+    SSDKPlatformType shareType;
+    if ([btnTitle isEqualToString:@"微博"])
     {
-        //1、创建分享参数
-
-        UIImage *imgeee = imageArray[actionSheet.tag];
-
-        NSArray* shareImageArray = @[imgeee];
-        //        （注意：图片必须要在Xcode左边目录里面，名称必须要传正确，如果要分享网络图片，可以这样传iamge参数 images:@[@"http://mob.com/Assets/images/logo.png?v=20150320"]）
-        if (shareImageArray) {
-
-            NSIndexPath *cellIndexPath = [NSIndexPath indexPathForRow:actionSheet.tag inSection:0];
-            CBHistoryCollectionViewCell *cells = (CBHistoryCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:cellIndexPath];
-
-            NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
-
-            [shareParams SSDKSetupShareParamsByText:@"来看看我这次的成绩🤣"
-                                             images:shareImageArray
-                                                url:nil
-                                              title:@"ArcheryScoreBoard"
-                                               type:SSDKContentTypeAuto];
-
-            [shareParams SSDKEnableUseClientShare];
-
-            //2、分享（可以弹出我们的分享菜单和编辑界面）
-            [ShareSDK showShareActionSheet:cells.btn //要显示菜单的视图, iPad版中此参数作为弹出菜单的参照视图，只有传这个才可以弹出我们的分享菜单，可以传分享的按钮对象或者自己创建小的view 对象，iPhone可以传nil不会影响
-                                     items:nil
-                               shareParams:shareParams
-                       onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
-
-                           switch (state) {
-                               case SSDKResponseStateSuccess:
-                               {
-                                   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
-                                                                                       message:nil
-                                                                                      delegate:nil
-                                                                             cancelButtonTitle:@"确定"
-                                                                             otherButtonTitles:nil];
-                                   [alertView show];
-                                   break;
-                               }
-                               case SSDKResponseStateFail:
-                               {
-                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
-                                                                                   message:[NSString stringWithFormat:@"%@",error]
-                                                                                  delegate:nil
-                                                                         cancelButtonTitle:@"OK"
-                                                                         otherButtonTitles:nil, nil];
-                                   [alert show];
-                                   break;
-                               }
-                               default:
-                                   break;
-                           }
-                       }
-             ];
-        }
+        shareType = SSDKPlatformTypeSinaWeibo;
     }
+    else if ([btnTitle isEqualToString:@"微信"])
+    {
+        shareType = SSDKPlatformTypeWechat;
+    }
+    else if ([btnTitle isEqualToString:@"QQ"])
+    {
+        shareType = SSDKPlatformTypeQQ;
+    }
+    else if ([btnTitle isEqualToString:@"短信"])
+    {
+        shareType = SSDKPlatformTypeSMS;
+    }
+    else if ([btnTitle isEqualToString:@"复制"])
+    {
+        shareType = SSDKPlatformTypeCopy;
+    }
+    else
+    {
+        shareType = SSDKPlatformTypeUnknown;
+    }
+    
+    NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+    [shareParams SSDKSetupShareParamsByText:content
+                                     images:image //传入要分享的图片
+                                        url:url
+                                      title:title
+                                       type:SSDKContentTypeAuto];
+    
+    //进行分享
+    [ShareSDK share:shareType //传入分享的平台类型
+         parameters:shareParams
+     onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error) {
+         // 回调处理....
+         NSString *msg;
+         switch (state) {
+             case SSDKResponseStateSuccess:
+             {
+                 msg = @"分享成功";
+             }
+                 break;
+             case SSDKResponseStateFail:
+             {
+                 msg = [NSString stringWithFormat:@"分享失败,原因:%@",error.description];
+             }
+                 break;
+             case SSDKResponseStateCancel:
+                 break;
+             default:
+                 break;
+         }
+         
+         if (!kStringIsEmpty(msg))
+         {
+             [Utils alertVCOnlyShowWithTitle:@"提示" andMessage:msg];
+         }
+     }];
 }
 @end

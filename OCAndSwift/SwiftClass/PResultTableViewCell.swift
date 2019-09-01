@@ -46,7 +46,7 @@ class PResultTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         targetImageView = UIImageView.init(frame: CGRect.init(x: 5, y: 2.5, width: 145, height: 145))

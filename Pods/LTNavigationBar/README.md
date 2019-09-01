@@ -1,5 +1,9 @@
 ![LTNavigationbar](https://cocoapod-badges.herokuapp.com/v/LTNavigationBar/badge.png)
 
+## swift version
+
+[https://github.com/ltebean/LTNavigationBar/tree/swift3.0](https://github.com/ltebean/LTNavigationBar/tree/swift3.0)
+
 ## Purpose
 It is hard to change the appearance of UINavigationBar dynamically, so I made this lib to make the job easy.
 
@@ -23,7 +27,7 @@ The category includes lots of method that helps to change UINavigationBar's appe
 ```objective-c
 @interface UINavigationBar (Awesome)
 - (void)lt_setBackgroundColor:(UIColor *)backgroundColor;
-- (void)lt_setContentAlpha:(CGFloat)alpha;
+- (void)lt_setElementsAlpha:(CGFloat)alpha;
 - (void)lt_setTranslationY:(CGFloat)translationY;
 - (void)lt_reset;
 @end
