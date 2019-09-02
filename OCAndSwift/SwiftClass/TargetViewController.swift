@@ -354,8 +354,9 @@ class TargetViewController: BaseViewController, UIImagePickerControllerDelegate,
         TargetView.image = UIImage.init(named: "TargetImage")
         self.view.addSubview(TargetView)
         TargetView.snp.makeConstraints { (make) in
-            make.top.centerX.equalTo(self.view)
-            make.left.equalTo(20)
+            make.centerX.equalTo(self.view)
+            make.top.equalTo(self.view).offset(PSwiftMarcos().navBarHeight()+5)
+            make.centerX.equalTo(self.view)
             make.width.height.equalTo(self.view.frame.size.width-40)
         }
         
@@ -637,24 +638,44 @@ class TargetViewController: BaseViewController, UIImagePickerControllerDelegate,
     
     @objc func takePhoto() {
         
-        let count:Int = UserDefaults.standard.object(forKey: "ALLCOUNT") as! Int
-        UserDefaults.standard.set(count + nbrsArrow, forKey: "ALLCOUNT")
-        UserDefaults.standard.synchronize()
+//        let count:Int = UserDefaults.standard.object(forKey: "ALLCOUNT") as! Int
+//        UserDefaults.standard.set(count + nbrsArrow, forKey: "ALLCOUNT")
+//        UserDefaults.standard.synchronize()
         
-        CorrectButton.isHidden = true
-        SendButton.isHidden = true
-        cameraBtn.isHidden = true
-        backBtn.isHidden = true
-        let saveimage = self.view.screenshot()
-        let libary = ALAssetsLibrary.init()
-        let data = saveimage!.pngData()
-        libary.writeImageData(toSavedPhotosAlbum: data, metadata: nil) { (url, error) in
-            self.CorrectButton.isHidden = false
-            self.SendButton.isHidden = false
-            self.cameraBtn.isHidden = false
-            self.backBtn.isHidden = false
-            PSaveTools.save(toScoreHistory: saveimage)
+       let mainQueue = DispatchQueue.main
+
+        mainQueue.async {
+            self.CorrectButton.isHidden = true
+            self.SendButton.isHidden = true
+            self.cameraBtn.isHidden = true
+            self.backBtn.isHidden = true
         }
+        
+        let saveimage = self.view.screenshot()
+
+        PHPhotoLibrary.shared().performChanges({
+           
+            PHAssetChangeRequest.creationRequestForAsset(from: saveimage!)
+        }) { (success, error) in
+            if (error == nil) && success
+            {
+                self.CorrectButton.isHidden = false
+                self.SendButton.isHidden = false
+                self.cameraBtn.isHidden = false
+                self.backBtn.isHidden = false
+                PSaveTools.save(toScoreHistory: saveimage)
+            }
+        }
+        
+//        let libary = ALAssetsLibrary.init()
+//        let data = saveimage!.pngData()
+//        libary.writeImageData(toSavedPhotosAlbum: data, metadata: nil) { (url, error) in
+//            self.CorrectButton.isHidden = false
+//            self.SendButton.isHidden = false
+//            self.cameraBtn.isHidden = false
+//            self.backBtn.isHidden = false
+//            PSaveTools.save(toScoreHistory: saveimage)
+//        }
     }
 }
 

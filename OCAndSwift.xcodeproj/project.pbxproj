@@ -44,6 +44,7 @@
 		C02025AE231BB33E00EB9B50 /* Pods_OCAndSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB6026884472B0CD23A4BB0 /* Pods_OCAndSwift.framework */; };
 		C07127D3231BA567004BA5BB /* Pods_OCAndSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0712799231BA565004BA5BB /* Pods_OCAndSwift.framework */; };
 		C07127D4231BA568004BA5BB /* Pods_OCAndSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0712799231BA565004BA5BB /* Pods_OCAndSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C09802CC231CAA6D00732AA6 /* PSwiftMarcos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09802CB231CAA6D00732AA6 /* PSwiftMarcos.swift */; };
 		CC2514081E85872F00ADBDA4 /* PResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2514071E85872F00ADBDA4 /* PResultTableViewCell.swift */; };
 		CC78E4FC1E856C8500580676 /* PSaveTools.m in Sources */ = {isa = PBXBuildFile; fileRef = CC78E4FB1E856C8500580676 /* PSaveTools.m */; };
 		CC9140F51E859B4700AFD3DA /* PAboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA695DD1E5B792400A30E93 /* PAboutMeViewController.m */; };
@@ -233,6 +234,7 @@
 		C07127A9231BA565004BA5BB /* WZLBadge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WZLBadge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C07127AA231BA565004BA5BB /* YCXMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YCXMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0966B02231BA08400375E44 /* OCAndSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OCAndSwift.entitlements; sourceTree = "<group>"; };
+		C09802CB231CAA6D00732AA6 /* PSwiftMarcos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSwiftMarcos.swift; sourceTree = "<group>"; };
 		CC2514071E85872F00ADBDA4 /* PResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PResultTableViewCell.swift; sourceTree = "<group>"; };
 		CC2C84041E8AA41E005CAB96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		CC2C84061E8AA41E005CAB96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -593,6 +595,7 @@
 				B7C5CB7C1E84F674009F5AC9 /* Shot.swift */,
 				B7C5CB7E1E84F674009F5AC9 /* TargetViewController.swift */,
 				CC2514071E85872F00ADBDA4 /* PResultTableViewCell.swift */,
+				C09802CB231CAA6D00732AA6 /* PSwiftMarcos.swift */,
 			);
 			path = SwiftClass;
 			sourceTree = "<group>";
@@ -903,6 +906,7 @@
 				B7C5CB091E84E988009F5AC9 /* ViewController.m in Sources */,
 				CC9140F61E859B5100AFD3DA /* LBaseViewController.m in Sources */,
 				B70AC0611E850FF2005D5F57 /* UIView+Category.m in Sources */,
+				C09802CC231CAA6D00732AA6 /* PSwiftMarcos.swift in Sources */,
 				B7C5CB861E84F674009F5AC9 /* TargetViewController.swift in Sources */,
 				B7C5CB841E84F674009F5AC9 /* Shot.swift in Sources */,
 				B7C5CB831E84F674009F5AC9 /* ResultViewController.swift in Sources */,
@@ -1005,6 +1009,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WARNING_CFLAGS = "-Wno-unused-variable";
 			};
 			name = Debug;
 		};
@@ -1047,6 +1052,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				WARNING_CFLAGS = "-Wno-unused-variable";
 			};
 			name = Release;
 		};
@@ -1118,6 +1124,12 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WARNING_CFLAGS = (
+					"-Wno-unused-variable",
+					"-Wno-documentation",
+					"-Wno-objc-property-no-attribute",
+					"-Wno-implicit-retain-self",
+				);
 			};
 			name = Debug;
 		};
@@ -1188,6 +1200,12 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "OCAndSwift/OCAndSwift-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WARNING_CFLAGS = (
+					"-Wno-unused-variable",
+					"-Wno-documentation",
+					"-Wno-objc-property-no-attribute",
+					"-Wno-implicit-retain-self",
+				);
 			};
 			name = Release;
 		};

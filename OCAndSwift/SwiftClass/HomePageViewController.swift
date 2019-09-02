@@ -36,9 +36,9 @@ class HomePageViewController: BaseViewController,SJFluidSegmentedControlDelegate
         self.view.addSubview(nameTitle)
         nameTitle.snp.makeConstraints { (make) in
             make.width.equalTo(self.view.frame.size.width-20)
-            make.height.equalTo(30)
+            make.height.equalTo(20)
             make.centerX.equalTo(self.view)
-            make.top.equalTo(0)
+            make.top.equalTo(self.view).offset(PSwiftMarcos().navBarHeight()+10)
         }
         
         let currentDate = Date()
@@ -53,7 +53,7 @@ class HomePageViewController: BaseViewController,SJFluidSegmentedControlDelegate
         self.view.addSubview(nameText)
         nameText.snp.makeConstraints { (make) in
             make.width.equalTo(self.view.frame.size.width-20)
-            make.height.equalTo(30)
+            make.height.equalTo(20)
             make.centerX.equalTo(self.view)
             make.top.equalTo(nameTitle.snp.bottom).offset(10)
         }
@@ -66,7 +66,7 @@ class HomePageViewController: BaseViewController,SJFluidSegmentedControlDelegate
         self.view.addSubview(bowTitle)
         bowTitle.snp.makeConstraints { (make) in
             make.width.equalTo(self.view.frame.size.width-20)
-            make.height.equalTo(30)
+            make.height.equalTo(20)
             make.centerX.equalTo(self.view)
             make.top.equalTo(nameText.snp.bottom).offset(10)
         }
@@ -90,7 +90,7 @@ class HomePageViewController: BaseViewController,SJFluidSegmentedControlDelegate
         self.view.addSubview(distanceTitle)
         distanceTitle.snp.makeConstraints { (make) in
             make.width.equalTo(self.view.frame.size.width-20)
-            make.height.equalTo(30)
+            make.height.equalTo(20)
             make.centerX.equalTo(self.view)
             make.top.equalTo((bowSegmentedControl?.snp.bottom)!).offset(10)
         }
@@ -114,7 +114,7 @@ class HomePageViewController: BaseViewController,SJFluidSegmentedControlDelegate
         self.view.addSubview(targetTitle)
         targetTitle.snp.makeConstraints { (make) in
             make.width.equalTo(self.view.frame.size.width-20)
-            make.height.equalTo(30)
+            make.height.equalTo(20)
             make.centerX.equalTo(self.view)
             make.top.equalTo((distanceSegmentedControl?.snp.bottom)!).offset(10)
         }
@@ -138,7 +138,7 @@ class HomePageViewController: BaseViewController,SJFluidSegmentedControlDelegate
         self.view.addSubview(arrowTitle)
         arrowTitle.snp.makeConstraints { (make) in
             make.width.equalTo(self.view.frame.size.width-20)
-            make.height.equalTo(30)
+            make.height.equalTo(20)
             make.centerX.equalTo(self.view)
             make.top.equalTo((targetSegmentedControl?.snp.bottom)!).offset(10)
         }
@@ -163,7 +163,7 @@ class HomePageViewController: BaseViewController,SJFluidSegmentedControlDelegate
         self.view.addSubview(nbrsArrowLabel)
         nbrsArrowLabel.snp.makeConstraints { (make) in
             make.width.equalTo(self.view.frame.size.width)
-            make.height.equalTo(30)
+            make.height.equalTo(20)
             make.left.equalTo(self.view)
             make.top.equalTo(stepper.snp.bottom)
         }

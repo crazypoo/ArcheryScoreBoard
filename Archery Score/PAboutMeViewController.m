@@ -149,7 +149,9 @@
 {
     if (indexPath.row == 0)
     {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/archeryboard/id1207773724?l=zh&ls=1&mt=8"]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/archeryboard/id1207773724?l=zh&ls=1&mt=8"] options:@{} completionHandler:^(BOOL success) {
+            
+        }];
     }
     else if (indexPath.row == 1)
     {

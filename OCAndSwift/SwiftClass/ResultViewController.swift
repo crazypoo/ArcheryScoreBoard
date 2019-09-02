@@ -57,10 +57,13 @@ class ResultViewController: BaseViewController,UITableViewDataSource,UITableView
         
         self.navigationItem.setRightBarButton(UIBarButtonItem.init(title: "更多操作", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.goBack(_:))), animated: true)
         
-        tbView = UITableView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height-64), style: .plain)
+        tbView = UITableView.init(frame: CGRect.zero, style: .plain)
         tbView.delegate = self
         tbView.dataSource = self
         self.view.addSubview(tbView)
+        tbView.snp.makeConstraints { (make) in
+            make.left.right.bottom.top.equalTo(self.view)
+        }
         
         let view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: 200))
         
@@ -73,7 +76,7 @@ class ResultViewController: BaseViewController,UITableViewDataSource,UITableView
         radar.labelMarginTop = 5
         radar.xLabels = ["M","1","2","3","4","5","6","7","8","9","10","X"]
         radar.rotateForXAxisText = false
-        radar.yValues = [MStr,oneStr,twoStr,threeStr,fourStr,fiveStr,sixStr,sevenStr,eightStr,nineStr,tenStr,xStr]
+        radar.yValues = [MStr!,oneStr!,twoStr!,threeStr!,fourStr!,fiveStr!,sixStr!,sevenStr!,eightStr!,nineStr!,tenStr!,xStr!]
         radar.barColorGradientStart = .blue
         radar.stroke()
         view.addSubview(radar)

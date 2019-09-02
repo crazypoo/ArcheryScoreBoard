@@ -22,13 +22,22 @@
 
 +(void)saveScrollView:(UITableView *)tbView
 {
-    ALAssetsLibrary *libary = [ALAssetsLibrary new];
     NSString *plistPath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/History/%@-统计.png",[self createCurrentTime]]];
     UIImage *image = [tbView screenshot];
     NSData *myData = UIImagePNGRepresentation(image);
     [myData writeToFile:plistPath atomically:YES];
-    [libary writeImageDataToSavedPhotosAlbum:myData metadata:nil completionBlock:^(NSURL *assetURL, NSError *error) {
-        
+
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        [PHAssetChangeRequest creationRequestForAssetFromImage:image];
+    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+        if (!error && success)
+        {
+            PNSLog(@"保存相册成功!");
+        }
+        else
+        {
+            PNSLog(@"保存相册失败! :%@",error);
+        }
     }];
 }
 
